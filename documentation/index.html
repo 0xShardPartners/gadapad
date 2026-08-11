@@ -250,136 +250,104 @@ table.gp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-
 .gp-tl-body { font-size: 14.5px; color: var(--text-muted); max-width: 56ch; }
 
 /* ==========================================================================
-   Figures and diagrams
+   Figures
 
-   One shared wrapper (.gp-fig) gives every diagram the same frame: a quiet
-   recessed surface, generous breathing room, and an optional caption. Cards
-   inside sit on --bg-elevated so they lift off that surface, which is what
-   makes a diagram read as a designed figure rather than as loose markup.
-
-   Figures break out slightly wider than the 700px prose column on large
-   screens. There is free space either side of the article (the main column
-   is centered with 44px padding), so this costs nothing and gives diagrams
-   room without ever colliding with the table of contents.
+   One grammar, drawn rather than boxed. A figure is line work and type
+   sitting directly on the page, never a card grid inside a tinted
+   container. Structure is a hairline, the focal point is the accent, and
+   everything else is quiet ink. Captions are set in the display italic,
+   like a plate caption in a printed book.
    ========================================================================== */
-.gp-fig { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px 24px; margin: 28px 0; }
-@media (min-width: 1280px) { .gp-fig { margin-inline: -36px; padding: 30px 34px; } }
-.gp-fig-cap { display: block; font-size: 12.5px; line-height: 1.55; color: var(--text-faint); margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border); max-width: none; }
-.gp-fig-cap strong { color: var(--text-muted); font-weight: 600; }
-.gp-article .gp-fig p { max-width: none; }
+.fig { margin: 36px 0 40px; }
+p.fig-cap { font-family: var(--display); font-style: italic; font-size: 14px; line-height: 1.55; color: var(--text-muted); margin: 20px 0 0; max-width: 58ch; }
+.gp-article .fig p { max-width: none; }
 
-/* --- pipeline: an at a glance sequence, short labels only ---------------
-   Deliberately carries no prose. Pages that use it follow with the detailed
-   step list, so the figure summarises and the steps explain, instead of the
-   two saying the same thing twice. */
-.gp-pipeline { display: flex; list-style: none; margin: 0; padding: 0; }
-.gp-pipeline li { flex: 1 1 0; position: relative; text-align: center; padding: 38px 4px 0; min-width: 0; }
-.gp-pipeline li::before { content: ""; position: absolute; top: 14px; left: 0; right: 0; height: 1.5px; background: var(--border-strong); }
-.gp-pipeline li:first-child::before { left: 50%; }
-.gp-pipeline li:last-child::before { right: 50%; }
-.gp-pipeline .pl-n { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 29px; height: 29px; border-radius: 50%; background: var(--bg-elevated); border: 1.5px solid var(--accent); color: var(--accent-text); font-family: var(--mono); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; z-index: 1; }
-.gp-pipeline .pl-t { display: block; font-size: 13px; font-weight: 700; color: var(--text); line-height: 1.35; }
-.gp-pipeline .pl-s { display: block; font-size: 11.5px; color: var(--text-faint); line-height: 1.45; margin-top: 4px; }
+/* guards: the article base must never restyle structural components */
+.gp-article ol.gp-steps { margin: 26px 0; padding: 0; max-width: none; }
+.gp-article .gp-steps li { margin: 0; }
+.gp-article .fig ol, .gp-article .fig ul { margin: 0; padding: 0; max-width: none; list-style: none; }
+.gp-article .fig li { margin: 0; font-size: inherit; }
+.gp-article .fig li::marker { content: none; }
+
+/* --- strip: an at a glance sequence on a single hairline ----------------- */
+.fig-strip { display: flex; margin: 4px 0 0; padding: 0; list-style: none; }
+.fig-strip li { flex: 1 1 0; position: relative; min-width: 0; padding: 22px 10px 0 0; }
+.fig-strip li::before { content: ""; position: absolute; top: 4px; left: 0; right: 0; height: 1px; background: var(--border-strong); }
+.fig-strip li:last-child { padding-right: 0; }
+.fig-strip li:last-child { flex: 0 1 auto; }
+.fig-strip li:last-child::before { display: none; }
+.fig-strip li::after { content: ""; position: absolute; top: 0; left: 0; width: 9px; height: 9px; box-sizing: border-box; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--border-strong); }
+.fig-strip .st-t { display: block; font-size: 13.5px; font-weight: 650; color: var(--text); letter-spacing: -.005em; }
+.fig-strip .st-s { display: block; font-size: 12px; color: var(--text-muted); line-height: 1.45; margin-top: 2px; }
+@media (max-width: 600px) { .fig-strip { display: none; } .fig.fig-optional { display: none; } }
+
+/* --- spine: a connected sequence, read top to bottom --------------------- */
+.fig-spine { position: relative; margin: 0; padding: 0; list-style: none; }
+.fig-spine > li { position: relative; padding: 0 0 24px 30px; }
+.fig-spine > li:not(:last-child)::after { content: ""; position: absolute; left: 5px; top: 17px; bottom: -8px; width: 1px; background: var(--border-strong); }
+.fig-spine > li:last-child { padding-bottom: 0; }
+.fig-spine > li::before { content: ""; position: absolute; left: 1px; top: 5px; width: 9px; height: 9px; box-sizing: border-box; border-radius: 50%; background: var(--bg); border: 1px solid var(--border-strong); }
+.fig-spine > li.is-focus::before { background: var(--accent); border-color: var(--accent); }
+.fig-spine > li.is-end::before { border-radius: 2px; border-color: var(--accent); }
+.fig-spine .sp-k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em; color: var(--text-faint); display: block; margin-bottom: 2px; }
+.fig-spine .sp-t { font-size: 14.5px; font-weight: 650; color: var(--text); letter-spacing: -.005em; }
+.fig-spine .sp-t code { font-size: .92em; }
+.fig-spine li.is-focus .sp-t { color: var(--accent-text); }
+.fig-spine .sp-d { font-size: 13px; color: var(--text-muted); line-height: 1.58; margin-top: 3px; max-width: 54ch; }
+
+/* the fork a check resolves into, two colored text outcomes */
+.fig-fork { display: flex; flex-direction: column; gap: 7px; margin-top: 10px; }
+.fig-fork span { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
+.fig-fork svg { width: 13px; height: 13px; flex-shrink: 0; }
+.fig-fork .f-ok { color: var(--success); }
+.fig-fork .f-no { color: var(--danger); }
+.fig-fork small { font-weight: 400; color: var(--text-muted); font-size: 12px; }
+
+/* --- rows: parallel guarantees as an editorial list ---------------------- */
+.fig-rows { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
+.fig-rows > li { display: flex; gap: 22px; padding: 15px 2px; border-bottom: 1px solid var(--border); align-items: baseline; }
+.fig-rows .r-n { font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em; color: var(--text-faint); flex: 0 0 20px; }
+.fig-rows .r-t { font-size: 14.5px; font-weight: 650; color: var(--text); flex: 0 0 168px; letter-spacing: -.005em; }
+.fig-rows .r-d { font-size: 13px; color: var(--text-muted); line-height: 1.58; flex: 1 1 auto; }
+@media (max-width: 620px) { .fig-rows > li { flex-wrap: wrap; gap: 4px 22px; } .fig-rows .r-t { flex: 1 1 auto; } .fig-rows .r-d { flex-basis: 100%; padding-left: 42px; } }
+
+/* --- cols: two ideas side by side, split by a hairline ------------------- */
+.fig-cols { display: grid; grid-template-columns: 1fr 1fr; }
+.fig-cols > div { padding: 2px 28px 2px 0; }
+.fig-cols > div + div { border-left: 1px solid var(--border); padding: 2px 0 2px 28px; }
+.fig-cols .co-k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em; color: var(--text-faint); display: block; margin-bottom: 4px; }
+.fig-cols .co-t { font-size: 14.5px; font-weight: 650; color: var(--text); letter-spacing: -.005em; }
+.fig-cols .co-d { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-top: 5px; }
+.fig-cols .co-h { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 650; letter-spacing: -.005em; margin-bottom: 12px; }
+.fig-cols .co-h svg { width: 13px; height: 13px; flex-shrink: 0; }
+.fig-cols .co-h.on { color: var(--success); }
+.fig-cols .co-h.off { color: var(--text-muted); }
+.fig-cols ul { list-style: none; margin: 0; padding: 0; max-width: none; }
+.fig-cols ul li { font-size: 13px; line-height: 1.58; color: var(--text-muted); margin: 0 0 10px; }
+.fig-cols ul li:last-child { margin-bottom: 0; }
+.fig-cols ul li strong { color: var(--text); font-weight: 650; }
 @media (max-width: 620px) {
-  .gp-pipeline { flex-direction: column; }
-  .gp-pipeline li { text-align: left; padding: 0 0 20px 44px; min-height: 30px; }
-  .gp-pipeline li::before { top: 0; bottom: 0; left: 14px; right: auto; width: 1.5px; height: auto; }
-  .gp-pipeline li:first-child::before { top: 14px; left: 14px; }
-  .gp-pipeline li:last-child::before { height: 14px; bottom: auto; }
-  .gp-pipeline .pl-n { left: 0; top: 0; transform: none; }
+  .fig-cols { grid-template-columns: 1fr; }
+  .fig-cols > div { padding: 0 0 18px; }
+  .fig-cols > div + div { border-left: none; border-top: 1px solid var(--border); padding: 18px 0 0; }
 }
 
-/* --- flow: a described sequence, used where the nodes carry the only copy - */
-.gp-flow { display: flex; flex-direction: column; gap: 0; }
-.gp-flow-node { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 17px; }
-.gp-flow-node .n-label { font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 5px; }
-.gp-flow-node .n-title { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; letter-spacing: -.005em; }
-.gp-flow-node .n-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
-.gp-flow-arrow { display: flex; align-items: center; justify-content: center; height: 22px; color: var(--text-faint); }
-.gp-flow-arrow svg { width: 15px; height: 15px; transform: rotate(90deg); }
+/* --- split: one origin dividing into the two columns beneath ------------- */
+.fig-split-root { text-align: center; max-width: 40ch; margin: 0 auto; }
+.fig-split-root .sr-t { font-size: 14.5px; font-weight: 650; color: var(--text); letter-spacing: -.005em; }
+.fig-split-root .sr-d { font-size: 12.5px; color: var(--text-faint); margin-top: 2px; }
+.fig-split-tree { position: relative; height: 18px; margin: 6px 0 0; }
+.fig-split-tree i { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--border-strong); }
+@media (max-width: 620px) { .fig-split-tree { display: none; } .fig-split-root { margin-bottom: 16px; } }
 
-/* --- base: a foundation bar everything above settles onto ---------------- */
-.gp-base { margin-top: 10px; border: 1px dashed var(--border-strong); border-radius: var(--radius); padding: 13px 17px; background: transparent; display: flex; align-items: center; gap: 10px; }
-.gp-base .b-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-.gp-base .b-text { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
-.gp-base .b-text strong { color: var(--text); font-weight: 700; }
-
-/* --- stack: layers resting on each other, top is nearest the user -------- */
-.gp-stack { display: flex; flex-direction: column; gap: 7px; }
-.gp-stack-layer { display: flex; align-items: baseline; gap: 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-.gp-stack-layer.is-focus { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 32%, transparent); }
-.gp-stack-layer .s-tier { flex: 0 0 74px; font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--text-faint); }
-.gp-stack-layer.is-focus .s-tier { color: var(--accent-text); }
-.gp-stack-layer .s-body { flex: 1 1 auto; min-width: 0; }
-.gp-stack-layer .s-title { font-size: 14.5px; font-weight: 700; letter-spacing: -.005em; }
-.gp-stack-layer .s-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; margin-top: 3px; }
-@media (max-width: 560px) { .gp-stack-layer { flex-direction: column; gap: 6px; } .gp-stack-layer .s-tier { flex: none; } }
-
-/* --- gate: a check with two possible outcomes --------------------------- */
-.gp-gate { display: flex; flex-direction: column; gap: 0; }
-.gp-gate-node { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 17px; }
-.gp-gate-node .n-label { font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 5px; }
-.gp-gate-node .n-title { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; letter-spacing: -.005em; }
-.gp-gate-node .n-title code { font-size: .92em; }
-.gp-gate-node .n-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
-.gp-gate-node.check { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 32%, transparent); }
-.gp-gate-arrow { display: flex; align-items: center; justify-content: center; height: 22px; color: var(--text-faint); }
-.gp-gate-arrow svg { width: 15px; height: 15px; transform: rotate(90deg); }
-
-/* outcome chips, the two ways a check can resolve */
-.gp-outcomes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.gp-outcome { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; border-radius: 20px; padding: 5px 12px 5px 9px; }
-.gp-outcome svg { width: 13px; height: 13px; flex-shrink: 0; }
-.gp-outcome.ok { background: var(--success-bg); color: var(--success); }
-.gp-outcome.no { background: var(--danger-bg); color: var(--danger); }
-
-/* --- branch: one thing that leads to two independent things ------------- */
-.gp-branch-root { background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent); border-radius: var(--radius); padding: 14px 17px; text-align: center; }
-.gp-branch-root .r-title { font-size: 14.5px; font-weight: 700; }
-.gp-branch-root .r-desc { font-size: 12.5px; color: var(--text-muted); margin-top: 3px; }
-.gp-branch-conn { display: block; width: 100%; height: 26px; color: var(--border-strong); }
-.gp-branch-kids { display: flex; gap: 14px; }
-.gp-branch-kids > div { flex: 1 1 0; min-width: 0; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 17px; }
-.gp-branch-kids .k-label { font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 5px; }
-.gp-branch-kids .k-title { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
-.gp-branch-kids .k-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
-@media (max-width: 560px) {
-  .gp-branch-conn { height: 16px; }
-  .gp-branch-kids { flex-direction: column; gap: 10px; }
-}
-
-/* --- pillars: independent guarantees, no sequence, no arrows ------------ */
-.gp-pillars { display: flex; flex-wrap: wrap; gap: 12px; }
-.gp-pillar { flex: 1 1 165px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; min-width: 155px; }
-.gp-pillar .p-ic { color: var(--accent); margin-bottom: 11px; height: 20px; display: flex; align-items: center; }
-.gp-pillar .p-ic svg { width: 19px; height: 19px; }
-.gp-pillar .p-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; letter-spacing: -.005em; }
-.gp-pillar .p-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
-
-/* --- compare: two things weighed against each other --------------------- */
-.gp-compare { display: flex; align-items: stretch; gap: 0; }
-.gp-compare-item { flex: 1 1 0; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 17px; min-width: 0; }
-.gp-compare-item .c-label { font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 5px; }
-.gp-compare-item .c-title { font-size: 15px; font-weight: 700; margin-bottom: 5px; letter-spacing: -.005em; }
-.gp-compare-item .c-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
-.gp-compare-join { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 42px; }
-.gp-compare-join span { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: var(--bg-elevated); border: 1px solid var(--border-strong); font-size: 12px; font-weight: 700; color: var(--text-faint); }
-@media (max-width: 560px) { .gp-compare { flex-direction: column; } .gp-compare-join { width: auto; padding: 8px 0; } }
-
-/* --- ledger: what is guaranteed set against what is not ----------------- */
-.gp-ledger { display: flex; gap: 14px; }
-.gp-ledger > div { flex: 1 1 0; min-width: 0; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 17px; }
-.gp-ledger .l-head { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 12px; }
-.gp-ledger .l-head svg { width: 14px; height: 14px; flex-shrink: 0; }
-.gp-ledger .is-on .l-head { color: var(--success); }
-.gp-ledger .is-off .l-head { color: var(--text-faint); }
-.gp-ledger ul { list-style: none; margin: 0; padding: 0; max-width: none; }
-.gp-ledger li { position: relative; font-size: 12.5px; line-height: 1.55; color: var(--text-muted); padding-left: 16px; margin: 0 0 9px; }
-.gp-ledger li:last-child { margin-bottom: 0; }
-.gp-ledger li::before { content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 1.5px; border-radius: 1px; background: var(--border-strong); }
-.gp-ledger .is-on li::before { background: var(--success); }
-.gp-ledger li strong { color: var(--text); font-weight: 700; }
-@media (max-width: 560px) { .gp-ledger { flex-direction: column; } }
+/* --- stack: layers, the focal one marked with a single accent rule ------- */
+.fig-stack { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
+.fig-stack > li { display: flex; gap: 22px; padding: 15px 2px; border-bottom: 1px solid var(--border); align-items: baseline; }
+.fig-stack .sk-k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em; color: var(--text-faint); flex: 0 0 86px; }
+.fig-stack .sk-t { font-size: 14.5px; font-weight: 650; color: var(--text); flex: 0 0 110px; letter-spacing: -.005em; }
+.fig-stack .sk-d { font-size: 13px; color: var(--text-muted); line-height: 1.58; flex: 1 1 auto; }
+.fig-stack > li.is-focus .sk-t { color: var(--accent-text); }
+@media (max-width: 620px) { .fig-stack > li { flex-wrap: wrap; gap: 3px 18px; } .fig-stack .sk-d { flex-basis: 100%; } }
 
 /* FAQ */
 .gp-faq-item { border-bottom: 1px solid var(--border); }
@@ -439,6 +407,8 @@ table.gp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-
 /* Scroll progress */
 .gp-progress { position: fixed; top: var(--header-h); left: 0; height: 2px; background: var(--accent); z-index: 210; width: 0%; transition: width .1s linear; }
 </style>
+</head>
+<body>
 
 <div class="gp-progress" id="progress"></div>
 
@@ -468,7 +438,7 @@ table.gp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-
   <aside class="gp-sidebar" id="sidebar"><nav id="navRoot"></nav></aside>
 
   <main class="gp-main">
-    <div class="gp-article-wrap">
+    <div class="gp-article-wrap gp-article">
       <div id="pagesRoot"><section class="gp-page active" data-page="intro" id="page-intro">
   <div class="gp-hero">
     <div class="gp-hero-inner">
@@ -525,33 +495,27 @@ table.gp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-
 <section class="gp-page" data-page="why-giwa" id="page-why-giwa">
   <span class="gp-eyebrow"><span class="dot"></span>Get Started</span>
   <h1>Why GIWA</h1>
-  <p class="gp-lead">GADAPAD isn't a generic launchpad that just happens to sit on GIWA. It's built around something that only exists on this chain, and that's on purpose.</p>
+  <p class="gp-lead">GADAPAD is built around something that only exists on this chain, and that's on purpose.</p>
 
-  <div class="gp-fig">
-    <div class="gp-stack">
-      <div class="gp-stack-layer is-focus">
-        <div class="s-tier">Application</div>
-        <div class="s-body">
-          <div class="s-title">GADAPAD</div>
-          <div class="s-desc">Launch vaults, curation, and participant governed treasuries.</div>
-        </div>
-      </div>
-      <div class="gp-stack-layer">
-        <div class="s-tier">Layer 2</div>
-        <div class="s-body">
-          <div class="s-title">GIWA</div>
-          <div class="s-desc">OP Stack chain with one second blocks, and the home of Dojang, the identity layer GADAPAD is built on.</div>
-        </div>
-      </div>
-      <div class="gp-stack-layer">
-        <div class="s-tier">Layer 1</div>
-        <div class="s-body">
-          <div class="s-title">Ethereum</div>
-          <div class="s-desc">Final settlement and the security GIWA inherits.</div>
-        </div>
-      </div>
-    </div>
-    <p class="gp-fig-cap">Read bottom up: Ethereum provides the security, GIWA provides the speed and the identity layer, and GADAPAD is only the thin application on top. Removing the middle layer means rebuilding Dojang from scratch.</p>
+  <div class="fig">
+    <ol class="fig-stack">
+      <li class="is-focus">
+        <span class="sk-k">Application</span>
+        <span class="sk-t">GADAPAD</span>
+        <span class="sk-d">Launch vaults, curation, and participant governed treasuries. Deliberately thin.</span>
+      </li>
+      <li>
+        <span class="sk-k">Layer 2</span>
+        <span class="sk-t">GIWA</span>
+        <span class="sk-d">One second blocks on the OP Stack, and the home of Dojang, the identity layer everything above depends on.</span>
+      </li>
+      <li>
+        <span class="sk-k">Layer 1</span>
+        <span class="sk-t">Ethereum</span>
+        <span class="sk-d">Final settlement and the security the whole stack inherits.</span>
+      </li>
+    </ol>
+    <p class="fig-cap">Read bottom up. Take away the middle layer and the launchpad loses its identity infrastructure with it, which is the whole argument for building here.</p>
   </div>
 
   <h2>An Ethereum layer 2 built for one second finality</h2>
@@ -562,7 +526,7 @@ table.gp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-
   <p>GIWA takes its name from the traditional Korean roof tile, small, identical pieces that only become a roof once they're laid together in overlapping rows. GIWA describes itself as an open layer 2 that belongs to no single entity, accessible to anyone building on it. That idea carries straight over into how GADAPAD treats a raise. No single big contribution should get to define a launch, and no single party should get to decide what happens to a treasury once people have put money into it. A launch holds together the way a roof does, through a lot of small, verified pieces stacked on top of each other under the same terms.</p>
 
   <h2>Dojang couldn't be rebuilt anywhere else</h2>
-  <p>GADAPAD's verification, curation, and treasury design all lean on Dojang, the identity attestation service that lives on GIWA. Dojang isn't some generic KYC widget you could bolt onto any chain. It's issued through a regulated partner, anchored to the Ethereum Attestation Service, and wired straight into GIWA's own predeployed contracts. Build GADAPAD anywhere else, and you'd have to build an entire identity layer from scratch before the launchpad itself could even start. Build it on GIWA, and that layer's already there. The full mechanics are on the <a href="#dojang" data-nav="dojang">Dojang Verification</a> page.</p>
+  <p>GADAPAD's verification, curation, and treasury design all lean on Dojang, the identity attestation service that lives on GIWA. Dojang is issued through a regulated partner, anchored to the Ethereum Attestation Service, and wired straight into GIWA's own predeployed contracts. Build GADAPAD anywhere else, and you'd have to build an entire identity layer from scratch before the launchpad itself could even start. Build it on GIWA, and that layer's already there. The full mechanics are on the <a href="#dojang" data-nav="dojang">Dojang Verification</a> page.</p>
 
   <h2>Current network status</h2>
   <div class="gp-hint warning">
@@ -581,15 +545,14 @@ table.gp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-
   <h1>How GADAPAD works</h1>
   <p class="gp-lead">Every launch on GADAPAD moves through the same five stages in the same order, whether it's the first listing or the hundredth.</p>
 
-  <div class="gp-fig">
-    <ol class="gp-pipeline">
-      <li><span class="pl-n">1</span><span class="pl-t">Apply</span><span class="pl-s">Curator review</span></li>
-      <li><span class="pl-n">2</span><span class="pl-t">Verify</span><span class="pl-s">Once per wallet</span></li>
-      <li><span class="pl-n">3</span><span class="pl-t">Contribute</span><span class="pl-s">Uniform terms</span></li>
-      <li><span class="pl-n">4</span><span class="pl-t">Claim</span><span class="pl-s">Your allocation</span></li>
-      <li><span class="pl-n">5</span><span class="pl-t">Vote</span><span class="pl-s">Release of funds</span></li>
+  <div class="fig fig-optional">
+    <ol class="fig-strip">
+      <li><span class="st-t">Apply</span><span class="st-s">Curator review</span></li>
+      <li><span class="st-t">Verify</span><span class="st-s">Once per wallet</span></li>
+      <li><span class="st-t">Contribute</span><span class="st-s">Uniform terms</span></li>
+      <li><span class="st-t">Claim</span><span class="st-s">Your allocation</span></li>
+      <li><span class="st-t">Vote</span><span class="st-s">Release of funds</span></li>
     </ol>
-    <p class="gp-fig-cap">Stages 1 and 2 are gates, nothing opens until both clear. Stages 4 and 5 run on separate timelines, so getting your tokens never depends on how a treasury vote goes.</p>
   </div>
 
   <ol class="gp-steps">
@@ -636,30 +599,28 @@ table.gp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-
   <h2>How GADAPAD reads it</h2>
   <p>Every function on GADAPAD that moves money, whether that's a participant contributing to a launch or a team submitting one, sits behind a single check against Dojang's on chain query contract, DojangScroll.</p>
 
-  <div class="gp-fig">
-    <div class="gp-gate">
-      <div class="gp-gate-node">
-        <div class="n-label">Off chain</div>
-        <div class="n-title">Identity check with the issuer</div>
-        <div class="n-desc">Name, documents, and the verification itself stay with Upbit Korea. None of it is written to GIWA.</div>
-      </div>
-      <div class="gp-gate-arrow"><svg viewBox="0 0 18 18" fill="none"><path d="M2 9h13M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="gp-gate-node check">
-        <div class="n-label">On chain</div>
-        <div class="n-title"><code>DojangScroll.isVerified()</code></div>
-        <div class="n-desc">The launch contract asks one question and gets back one boolean. It never sees, or needs, the underlying identity.</div>
-      </div>
-      <div class="gp-gate-arrow"><svg viewBox="0 0 18 18" fill="none"><path d="M2 9h13M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="gp-gate-node">
-        <div class="n-label">Result</div>
-        <div class="n-title">The transaction itself</div>
-        <div class="gp-outcomes">
-          <div class="gp-outcome ok"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified, proceeds</div>
-          <div class="gp-outcome no"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Not verified, reverts</div>
+  <div class="fig">
+    <ol class="fig-spine">
+      <li>
+        <span class="sp-k">Off chain</span>
+        <span class="sp-t">Identity check with the issuer</span>
+        <p class="sp-d">Name, documents, and the verification itself stay with Upbit Korea. None of it is written to GIWA.</p>
+      </li>
+      <li class="is-focus">
+        <span class="sp-k">On chain</span>
+        <span class="sp-t"><code>DojangScroll.isVerified()</code></span>
+        <p class="sp-d">The launch contract asks one question and gets back one boolean. It never sees, or needs, the underlying identity.</p>
+      </li>
+      <li>
+        <span class="sp-k">Result</span>
+        <span class="sp-t">The transaction itself</span>
+        <div class="fig-fork">
+          <span class="f-ok"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.2l3.4 3.4L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified <small>the call proceeds</small></span>
+          <span class="f-no"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Not verified <small>the call reverts</small></span>
         </div>
-      </div>
-    </div>
-    <p class="gp-fig-cap">The check runs at call time, every time. There is no cached status to go stale and no path through the contracts that skips this gate, for participants or for listing teams.</p>
+      </li>
+    </ol>
+    <p class="fig-cap">Personal data never crosses the first arrow. Only the boolean does.</p>
   </div>
 
   <div class="gp-code">
@@ -712,23 +673,22 @@ abstract contract VerifiedAddressAccessControl {
 <section class="gp-page" data-page="curation" id="page-curation">
   <span class="gp-eyebrow"><span class="dot"></span>Core Concepts</span>
   <h1>Curated listings</h1>
-  <p class="gp-lead">Verification answers who someone is. Curation answers whether their project belongs on GADAPAD in the first place. They're independent checks, and GADAPAD requires both.</p>
+  <p class="gp-lead">Every listing on GADAPAD has to clear two separate checks before its window opens to anyone.</p>
 
-  <div class="gp-fig">
-    <div class="gp-compare">
-      <div class="gp-compare-item">
-        <div class="c-label">Identity</div>
-        <div class="c-title">Verification</div>
-        <div class="c-desc">Answers who is behind a wallet. Runs automatically, on chain, for every participant and every listing team.</div>
+  <div class="fig">
+    <div class="fig-cols">
+      <div>
+        <span class="co-k">Identity</span>
+        <span class="co-t">Verification</span>
+        <p class="co-d">Answers who is behind a wallet. Runs automatically, on chain, for every participant and every listing team.</p>
       </div>
-      <div class="gp-compare-join"><span>+</span></div>
-      <div class="gp-compare-item">
-        <div class="c-label">Eligibility</div>
-        <div class="c-title">Curation</div>
-        <div class="c-desc">Answers whether a project belongs here at all. Runs once per listing, by a named person against a fixed checklist.</div>
+      <div>
+        <span class="co-k">Eligibility</span>
+        <span class="co-t">Curation</span>
+        <p class="co-d">Answers whether a project belongs here at all. Runs once per listing, by a named person against a fixed checklist.</p>
       </div>
     </div>
-    <p class="gp-fig-cap">Two independent questions, so passing one says nothing about the other. A verified team can still be rejected in curation, and curation never substitutes for the on chain check.</p>
+    <p class="fig-cap">Two independent questions. A verified team can still be rejected in curation, and curation never substitutes for the on chain check.</p>
   </div>
 
   <h2>Why permissionless listing isn't enough on its own</h2>
@@ -752,7 +712,7 @@ abstract contract VerifiedAddressAccessControl {
   </div>
 
   <h2>Who curators are</h2>
-  <p>Curators are recognized members of the GIWA ecosystem who are individually accountable, verified through Dojang just like everyone else on the platform. Their identity is attached to every review they complete, so this isn't some anonymous rubber stamp. The full mandate and checklist live on the <a href="#curators" data-nav="curators">Curators</a> page.</p>
+  <p>Curators are recognized members of the GIWA ecosystem who are individually accountable, verified through Dojang just like everyone else on the platform. Their identity is attached to every review they complete, so every approval carries a name that can be checked. The full mandate and checklist live on the <a href="#curators" data-nav="curators">Curators</a> page.</p>
 
   <div class="gp-page-nav">
     <a href="#dojang" data-nav="dojang"><span class="pn-label">Back</span><span class="pn-title">Dojang Verification</span></a>
@@ -770,37 +730,19 @@ abstract contract VerifiedAddressAccessControl {
 
   <h2>Uniform terms for every participant</h2>
 
-  <div class="gp-fig">
-    <div class="gp-pillars">
-      <div class="gp-pillar">
-        <div class="p-ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.4"/><path d="M9 5.5v3.5l2.5 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
-        <div class="p-title">One rate</div>
-        <div class="p-desc">The same conversion rate for the whole window. Arriving early buys nothing extra.</div>
-      </div>
-      <div class="gp-pillar">
-        <div class="p-ic"><svg viewBox="0 0 18 18" fill="none"><path d="M3 13V5M9 13V3M15 13V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-        <div class="p-title">A floor and a ceiling</div>
-        <div class="p-desc">Every verified address is bound by the same minimum and maximum, so no wallet can dominate a launch.</div>
-      </div>
-      <div class="gp-pillar">
-        <div class="p-ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2l6 2.7v4.1c0 3.6-2.4 6.5-6 7.2-3.6-.7-6-3.6-6-7.2V4.7L9 2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
-        <div class="p-title">A hardcap</div>
-        <div class="p-desc">The contract rejects any contribution that would push the total past the cap set at configuration.</div>
-      </div>
-    </div>
-    <p class="gp-fig-cap">All three are contract parameters, fixed before a listing opens. They are checked in curation and then enforced on chain, not promised in a blog post.</p>
+  <div class="fig">
+    <ol class="fig-rows">
+      <li><span class="r-n">01</span><span class="r-t">One rate</span><span class="r-d">The same conversion rate for the whole window. Arriving early buys nothing extra.</span></li>
+      <li><span class="r-n">02</span><span class="r-t">A floor and a ceiling</span><span class="r-d">Every verified address is bound by the same minimum and maximum, so no wallet can dominate a launch.</span></li>
+      <li><span class="r-n">03</span><span class="r-t">A hardcap</span><span class="r-d">The contract rejects any contribution that would push the total past the cap set at configuration.</span></li>
+    </ol>
+    <p class="fig-cap">Three numbers a participant can read straight off the sale contract.</p>
   </div>
-
-  <ul>
-    <li><strong>One rate.</strong> Every contribution during the window converts to project tokens at the same fixed rate, regardless of when in the window it lands or how large it is.</li>
-    <li><strong>A minimum and a maximum.</strong> Each launch sets a floor and a ceiling per verified address, so a launch can't get dominated by a handful of large wallets.</li>
-    <li><strong>A hardcap.</strong> Total contributions can't exceed the cap the project set during configuration. The contract rejects any contribution that would push the total past it.</li>
-  </ul>
 
   <h2>Nothing large to dump on day one</h2>
   <p>Since prior investor allocations are excluded entirely, and any allocation the team keeps for itself streams or vests over time instead of unlocking all at once, there's no big, freely tradable position just sitting there the moment claiming opens. The people in the best position to sell right away are the same participants who bought in under the same public terms as everyone else.</p>
 
-  <div class="gp-pull">On GADAPAD, fair launch isn't a marketing line. It's a set of contract parameters that get checked before a listing opens and verified on chain once it does.</div>
+  <div class="gp-pull">On GADAPAD, fair launch is a set of contract parameters, checked before a listing opens and verified on chain once it does.</div>
 
   <div class="gp-page-nav">
     <a href="#curation" data-nav="curation"><span class="pn-label">Back</span><span class="pn-title">Curated Listings</span></a>
@@ -811,7 +753,7 @@ abstract contract VerifiedAddressAccessControl {
 <section class="gp-page" data-page="treasury" id="page-treasury">
   <span class="gp-eyebrow"><span class="dot"></span>Core Concepts</span>
   <h1>Participant governed treasury</h1>
-  <p class="gp-lead">This is the piece that actually separates GADAPAD from a normal launchpad. When a launch window closes, the money raised doesn't just become the team's. It goes into a treasury that the people who funded it still have a say over.</p>
+  <p class="gp-lead">This is the piece that actually separates GADAPAD from a normal launchpad. When a launch window closes, the money raised goes into a treasury that the people who funded it still have a say over.</p>
 
   <h2>What GADAPAD refuses to do</h2>
   <p>On most launchpads, once a raise clears, the money moves straight to a wallet the project team fully controls. From there, the participants who funded it have no real way to act. They can watch. They can call the team out publicly if things go sideways. But the contract itself gives them nothing to actually do. GADAPAD treats that gap as the real failure point here, not something to just shrug off as normal.</p>
@@ -819,14 +761,13 @@ abstract contract VerifiedAddressAccessControl {
   <h2>How release works</h2>
   <p>Funds contributed to a launch settle into a treasury contract scoped to that launch alone. Reaching the hardcap does not unlock them. Instead, releasing funds to the project team follows a fixed sequence.</p>
 
-  <div class="gp-fig">
-    <ol class="gp-pipeline">
-      <li><span class="pl-n">1</span><span class="pl-t">Request</span><span class="pl-s">Amount and purpose</span></li>
-      <li><span class="pl-n">2</span><span class="pl-t">Review</span><span class="pl-s">Fixed window</span></li>
-      <li><span class="pl-n">3</span><span class="pl-t">Vote</span><span class="pl-s">Weighted by contribution</span></li>
-      <li><span class="pl-n">4</span><span class="pl-t">Settle</span><span class="pl-s">Release or hold</span></li>
+  <div class="fig fig-optional">
+    <ol class="fig-strip">
+      <li><span class="st-t">Request</span><span class="st-s">Amount and purpose</span></li>
+      <li><span class="st-t">Review</span><span class="st-s">Fixed window</span></li>
+      <li><span class="st-t">Vote</span><span class="st-s">Weighted by contribution</span></li>
+      <li><span class="st-t">Settle</span><span class="st-s">Release or hold</span></li>
     </ol>
-    <p class="gp-fig-cap">There is no path that skips a stage. A window closing without quorum resolves to hold, never to release, so silence can never move money.</p>
   </div>
 
   <ol class="gp-steps">
@@ -928,7 +869,7 @@ abstract contract VerifiedAddressAccessControl {
   <p>Contributions settle in whatever stablecoin a launch is set up to accept. On testnet right now, that's a settlement token standing in to model the whole contribution and allocation flow before a live deployment exists. Once a KRW pegged stablecoin actually becomes available on GIWA, GADAPAD is built to accept it directly as a launch's settlement currency, which would give that asset one of its first real, everyday uses on chain instead of a purely speculative one.</p>
 
   <h2>Where enforcement actually happens</h2>
-  <p>The minimum, the maximum, and the hardcap aren't just policy text published next to a launch. They're conditions checked inside <code>participate()</code> on every single call. A contribution that would blow past the per address maximum or push the total over the hardcap reverts before it's ever accepted, so nobody's waiting around for a refund afterward.</p>
+  <p>The minimum, the maximum, and the hardcap are conditions checked inside <code>participate()</code> on every single call, not policy text published beside a launch. A contribution that would blow past the per address maximum or push the total over the hardcap reverts before it's ever accepted, so nobody's waiting around for a refund afterward.</p>
 
   <div class="gp-page-nav">
     <a href="#get-verified" data-nav="get-verified"><span class="pn-label">Back</span><span class="pn-title">Getting Verified</span></a>
@@ -941,27 +882,25 @@ abstract contract VerifiedAddressAccessControl {
   <h1>Claiming and treasury voting</h1>
   <p class="gp-lead">Contributing to a launch is where a participant's involvement starts, not where it ends. Two more actions follow, on two different timelines.</p>
 
-  <div class="gp-fig">
-    <div class="gp-branch-root">
-      <div class="r-title">Your contribution</div>
-      <div class="r-desc">One action during the launch window, which earns you two separate rights.</div>
+  <div class="fig">
+    <div class="fig-split-root">
+      <div class="sr-t">Your contribution</div>
+      <div class="sr-d">One action during the launch window, two separate rights after it</div>
     </div>
-    <svg class="gp-branch-conn" viewBox="0 0 100 26" preserveAspectRatio="none" fill="none" aria-hidden="true">
-      <path d="M50 0 V9 M25 9 H75 M25 9 V26 M75 9 V26" stroke="currentColor" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
-    </svg>
-    <div class="gp-branch-kids">
+    <div class="fig-split-tree"><i></i></div>
+    <div class="fig-cols">
       <div>
-        <div class="k-label">Your tokens</div>
-        <div class="k-title">Claiming</div>
-        <div class="k-desc">Withdraw what your contribution already earned, on the schedule the launch set. Nobody votes on this.</div>
+        <span class="co-k">Your tokens</span>
+        <span class="co-t">Claiming</span>
+        <p class="co-d">Withdraw what your contribution already earned, on the schedule the launch set. Nobody votes on this.</p>
       </div>
       <div>
-        <div class="k-label">The team's spending</div>
-        <div class="k-title">Treasury voting</div>
-        <div class="k-desc">Approve or reject each release request, weighted by what you contributed. Runs for as long as the treasury holds funds.</div>
+        <span class="co-k">The team's spending</span>
+        <span class="co-t">Treasury voting</span>
+        <p class="co-d">Approve or reject each release request, weighted by what you put in. Runs for as long as the treasury holds funds.</p>
       </div>
     </div>
-    <p class="gp-fig-cap">Kept apart on purpose. Claiming settles what you are already owed, voting decides what happens next, and folding them together would let one hold the other hostage.</p>
+    <p class="fig-cap">One contribution, two rights, each on its own clock.</p>
   </div>
 
   <h2>Claiming your allocation</h2>
@@ -1141,37 +1080,35 @@ abstract contract VerifiedAddressAccessControl {
   <h1>Architecture overview</h1>
   <p class="gp-lead">GADAPAD is intentionally thin. It doesn't reimplement identity verification, and it doesn't hold funds outside a launch's own treasury. It just coordinates pieces that already exist, each built for its own purpose.</p>
 
-  <div class="gp-fig">
-    <div class="gp-flow">
-      <div class="gp-flow-node">
-        <div class="n-label">Identity</div>
-        <div class="n-title">GIWA Wallet</div>
-        <div class="n-desc">Where a user completes Dojang verification and signs every GADAPAD transaction.</div>
-      </div>
-      <div class="gp-flow-arrow"><svg viewBox="0 0 18 18" fill="none"><path d="M2 9h13M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="gp-flow-node">
-        <div class="n-label">Attestation</div>
-        <div class="n-title">Dojang and EAS</div>
-        <div class="n-desc">Issues and stores the Verified Address attestation GADAPAD reads before every action.</div>
-      </div>
-      <div class="gp-flow-arrow"><svg viewBox="0 0 18 18" fill="none"><path d="M2 9h13M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="gp-flow-node">
-        <div class="n-label">Per launch</div>
-        <div class="n-title">Launch Vault</div>
-        <div class="n-desc">Accepts contributions, enforces caps, tracks allocation, and handles claiming for a single project.</div>
-      </div>
-      <div class="gp-flow-arrow"><svg viewBox="0 0 18 18" fill="none"><path d="M2 9h13M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="gp-flow-node">
-        <div class="n-label">Post launch</div>
-        <div class="n-title">Treasury Governor</div>
-        <div class="n-desc">Holds raised funds and releases them only on a participant approved request.</div>
-      </div>
-      <div class="gp-base">
-        <span class="b-dot"></span>
-        <span class="b-text"><strong>Everything settles on GIWA.</strong> No off chain database of contributions or votes sits beside this. Whatever the chain records is the entire record.</span>
-      </div>
-    </div>
-    <p class="gp-fig-cap">GADAPAD owns only the last two boxes. Identity and attestation are GIWA's own infrastructure, which is why the same launchpad could not simply be rebuilt on another chain.</p>
+  <div class="fig">
+    <ol class="fig-spine">
+      <li>
+        <span class="sp-k">Identity</span>
+        <span class="sp-t">GIWA Wallet</span>
+        <p class="sp-d">Where a user completes Dojang verification and signs every GADAPAD transaction.</p>
+      </li>
+      <li>
+        <span class="sp-k">Attestation</span>
+        <span class="sp-t">Dojang and EAS</span>
+        <p class="sp-d">Issues and stores the Verified Address attestation GADAPAD reads before every action.</p>
+      </li>
+      <li class="is-focus">
+        <span class="sp-k">Per launch</span>
+        <span class="sp-t">Launch Vault</span>
+        <p class="sp-d">Accepts contributions, enforces caps, tracks allocation, and handles claiming for a single project.</p>
+      </li>
+      <li class="is-focus">
+        <span class="sp-k">Post launch</span>
+        <span class="sp-t">Treasury Governor</span>
+        <p class="sp-d">Holds raised funds and releases them only on a participant approved request.</p>
+      </li>
+      <li class="is-end">
+        <span class="sp-k">Settlement</span>
+        <span class="sp-t">GIWA, then Ethereum</span>
+        <p class="sp-d">Every contribution, vote, and release settles here.</p>
+      </li>
+    </ol>
+    <p class="fig-cap">GADAPAD owns only the vault and the governor. Identity and attestation are GIWA's own infrastructure, which is why this could not simply be rebuilt elsewhere.</p>
   </div>
 
   <h2>One vault per launch</h2>
@@ -1248,10 +1185,11 @@ event ReleaseFinalized(uint256 indexed requestId, bool approved);</code></pre>
   <h1>Security model and network information</h1>
   <p class="gp-lead">GADAPAD's security posture rests on a handful of enforced properties, not a long list of assumptions.</p>
 
-  <div class="gp-fig">
-    <div class="gp-ledger">
-      <div class="is-on">
-        <div class="l-head"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Enforced by the contracts</div>
+  <h2>Enforced properties</h2>
+  <div class="fig">
+    <div class="fig-cols">
+      <div>
+        <div class="co-h on"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.2l3.4 3.4L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Enforced by the contracts</div>
         <ul>
           <li><strong>No unilateral withdrawal.</strong> No address, including GADAPAD's own deployer, moves funds out of a Treasury Governor without a passed vote.</li>
           <li><strong>Verified only access.</strong> Every fund moving function reads a live Dojang attestation at call time.</li>
@@ -1259,26 +1197,18 @@ event ReleaseFinalized(uint256 indexed requestId, bool approved);</code></pre>
           <li><strong>Reentrancy guards.</strong> On contribution, claiming, and treasury release alike.</li>
         </ul>
       </div>
-      <div class="is-off">
-        <div class="l-head"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Not claimed</div>
+      <div>
+        <div class="co-h off"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Not claimed</div>
         <ul>
-          <li><strong>No third party audit yet.</strong> What is described here is the intended design as it stands on testnet.</li>
+          <li><strong>No third party audit yet.</strong> An independent review comes before any mainnet deployment.</li>
           <li><strong>One human, one wallet.</strong> Verification raises the cost of abuse, it does not make it impossible.</li>
           <li><strong>Project outcomes.</strong> Curation is a checklist, never a judgment that a project will succeed.</li>
-          <li><strong>Mainnet readiness.</strong> Nothing here should be treated as a live financial product yet.</li>
+          <li><strong>Mainnet readiness.</strong> Nothing here is a live financial product yet.</li>
         </ul>
       </div>
     </div>
-    <p class="gp-fig-cap">The right hand column matters as much as the left. A security page that only lists guarantees is telling you half the story.</p>
+    <p class="fig-cap">The right column matters as much as the left. A security page that only lists guarantees is telling half the story.</p>
   </div>
-
-  <h2>Enforced properties</h2>
-  <ul>
-    <li><strong>Reentrancy protection.</strong> Every function that moves funds carries a reentrancy guard, including contribution, claiming, and treasury release.</li>
-    <li><strong>No unilateral withdrawal.</strong> No address, including GADAPAD's own deployer, can move funds out of a Treasury Governor without a passed participant vote.</li>
-    <li><strong>Verified only access.</strong> Every fund moving function checks a live Dojang attestation at call time, not some cached or stale status.</li>
-    <li><strong>Launch isolation.</strong> Each project's Launch Vault and Treasury Governor are independent deployments, so one launch's mess can't reach another.</li>
-  </ul>
 
   <h2>Audit status</h2>
   <div class="gp-hint warning">
