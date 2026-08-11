@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verification and settings. GADAPAD.</title>
+<meta name="description" content="Your wallet, Dojang verification status, and notification preferences on GADAPAD.">
+<link rel="icon" href="media/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="media/logo.png" alt=""><span>Gadapad</span></a>
+    <nav class="nav">
+      <a href="launchpad.html">Launchpad</a>
+      <a href="curators.html">Curators</a>
+      <a href="portfolio.html" class="on">Portfolio</a>
+      <a href="testdrive.html">Test drive</a>
+    </nav>
+    <div class="hdr-act">
+      <span class="net"><i class="dot"></i>GIWA</span>
+      <div id="walletSlot"></div>
+      <button class="burger" aria-label="Menu" data-burger><svg width="18" height="12" viewBox="0 0 18 12"><path d="M0,1H18M0,6H18M0,11H18" stroke="currentColor" stroke-width="1.3"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="sect-sm" data-rev>
+    <div class="wrap">
+      <div class="eyebrow eyebrow-v">Settings</div>
+      <h1 class="d2 mt4">Verification</h1>
+      <p class="lede mt4">Your wallet, your Dojang attestation, and what GADAPAD is allowed to tell you about.</p>
+    </div>
+  </section>
+
+  <section class="sect-sm" data-rev>
+    <div class="wrap">
+      <div class="g2" data-rev-g>
+
+        <div class="card" style="padding:var(--s7)">
+          <div class="eyebrow mb5">Connected wallet</div>
+          <div id="walletCardBody" style="display:flex; align-items:center; gap:var(--s4)">
+            <p class="fine">No wallet connected yet. Use Connect wallet in the header.</p>
+          </div>
+          <div class="mt6" id="walletCardActions" style="display:none; gap:var(--s3); flex-wrap:wrap">
+            <button class="btn btn-o btn-sm" id="copyAddr">Copy address</button>
+            <button class="btn btn-o btn-sm" id="disconnect">Disconnect</button>
+          </div>
+          <div class="row mt6"><span class="k">Network</span><span class="v">GIWA Sepolia</span></div>
+          <div class="row"><span class="k">Chain ID</span><span class="v">91342</span></div>
+        </div>
+
+        <div>
+          <div class="eyebrow">Wallet verification</div>
+          <p class="body mt4" style="font-size:14px">GADAPAD reads this directly from GIWA's own DojangScroll contract for the connected wallet. It is not something we can fake or override, the same check a sale contract runs on-chain.</p>
+          <div class="att mt5">
+            <div class="att-hd">
+              <div class="l"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.3" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 12.3 10.3 15.1 16.5 8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lb">DojangScroll, live read</span></div>
+              <span class="mk" id="verifyBadge">Connect a wallet</span>
+            </div>
+            <div class="att-f">
+              <div><div class="k">Attester</div><div class="v">Upbit Korea</div></div>
+              <div><div class="k">Wallet checked</div><div class="v" id="verifyAddr">…</div></div>
+            </div>
+            <p class="fine mt4" id="verifyExplain">Connect a wallet above to check it against the real Dojang Verified Address schema.</p>
+            <div class="att-ft"><span>DojangScroll contract</span><a href="https://sepolia-explorer.giwa.io/address/0xd5077b67dcb56caC8b270C7788FC3E6ee03F17B9" target="_blank" rel="noopener">View on GIWA Explorer</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sect-sm" data-rev>
+    <div class="wrap">
+      <div class="card" style="padding:var(--s7)">
+        <div class="eyebrow mb5">Notifications</div>
+        <div class="row"><div><div style="font-size:14px;font-weight:500">Sale goes live</div><div class="fine mt1">When a sale you are eligible for opens.</div></div><input type="checkbox" checked data-pref="Sale alerts"></div>
+        <div class="row"><div><div style="font-size:14px;font-weight:500">Claim available</div><div class="fine mt1">When vested tokens are ready to claim.</div></div><input type="checkbox" checked data-pref="Claim alerts"></div>
+        <div class="row"><div><div style="font-size:14px;font-weight:500">Treasury vote opens</div><div class="fine mt1">When a launch you funded files a release request.</div></div><input type="checkbox" checked data-pref="Treasury alerts"></div>
+        <div class="row"><div><div style="font-size:14px;font-weight:500">New launch announced</div><div class="fine mt1">When a new launch is scheduled.</div></div><input type="checkbox" data-pref="Launch alerts"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect-sm" data-rev>
+    <div class="wrap">
+      <div class="card" style="padding:var(--s7)">
+        <div class="eyebrow mb5">Activity</div>
+        <p class="body" id="activityBody" style="font-size:14px">Connect a wallet to look it up on the GIWA Sepolia explorer.</p>
+        <a href="#" id="activityLink" class="lnk mt3" style="display:none">Open this wallet on GIWA Explorer <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M0 4.5h10M7 1l3.5 3.5L7 8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-btm" style="border-top:none">
+      <span>© 2026 GADAPAD. Not investment advice.</span>
+      <span class="chain"><i></i>Built on GIWA</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/web3-provider.js"></script>
+<script src="js/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  function copy(text, label) {
+    var done = function () { showToast('success', 'Copied', label + ' is on your clipboard.'); };
+    var failed = function () { showToast('danger', 'Copy failed', 'Copy it manually: ' + text); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(failed);
+    } else { failed(); }
+  }
+
+  async function render() {
+    var acc = window.giwaWeb3 && window.giwaWeb3.account;
+    var body = document.getElementById('walletCardBody');
+    var actions = document.getElementById('walletCardActions');
+    var vBadge = document.getElementById('verifyBadge');
+    var vAddr = document.getElementById('verifyAddr');
+    var vExplain = document.getElementById('verifyExplain');
+    var actBody = document.getElementById('activityBody');
+    var actLink = document.getElementById('activityLink');
+
+    if (!acc) {
+      body.innerHTML = '<p class="fine">No wallet connected yet. Use Connect wallet in the header.</p>';
+      actions.style.display = 'none';
+      vBadge.textContent = 'Connect a wallet';
+      vAddr.textContent = '…';
+      vExplain.textContent = 'Connect a wallet above to check it against the real Dojang Verified Address schema.';
+      actBody.style.display = '';
+      actLink.style.display = 'none';
+      return;
+    }
+
+    var short = acc.slice(0, 6) + '…' + acc.slice(-4);
+    body.innerHTML = '<i style="width:34px;height:34px;border-radius:var(--r-sm);background:linear-gradient(135deg,var(--violet),var(--violet-press));flex-shrink:0"></i><span class="mono" style="font-size:15px">' + short + '</span>';
+    actions.style.display = 'flex';
+
+    actBody.style.display = 'none';
+    actLink.style.display = 'inline-flex';
+    actLink.href = 'https://sepolia-explorer.giwa.io/address/' + acc;
+
+    vAddr.textContent = short;
+    vBadge.textContent = 'Checking…';
+    try {
+      var verified = await window.giwaWeb3.isDojangVerified(acc);
+      vBadge.textContent = verified ? 'Verified' : 'Not verified';
+      vBadge.className = verified ? 'mk mk-ok' : 'mk';
+      vExplain.textContent = verified
+        ? 'This wallet holds a Dojang Verified Address attestation from Upbit Korea. It can participate in any GADAPAD sale that enforces Dojang on-chain.'
+        : 'This wallet does not hold a Dojang Verified Address attestation. Verification is issued by Upbit Korea, not by GADAPAD, so there is nothing we can do here except read the real result.';
+    } catch (e) {
+      vBadge.textContent = 'Could not check';
+      vExplain.textContent = 'The read against DojangScroll failed. The RPC may be busy, try again in a moment.';
+    }
+  }
+
+  var c = document.getElementById('copyAddr');
+  if (c) c.addEventListener('click', function () {
+    if (window.giwaWeb3 && window.giwaWeb3.account) copy(window.giwaWeb3.account, 'Your wallet address');
+  });
+
+  var d = document.getElementById('disconnect');
+  if (d) d.addEventListener('click', function () {
+    if (window.giwaWeb3) window.giwaWeb3.account = null;
+    try { localStorage.removeItem('gadapad_wallet'); } catch (e) {}
+    showToast('info', 'Disconnected', 'Your wallet is no longer connected.');
+    render();
+  });
+
+  document.querySelectorAll('input[data-pref]').forEach(function (i) {
+    i.addEventListener('change', function () {
+      showToast('info', 'Preference saved', i.getAttribute('data-pref') + ' are now ' + (i.checked ? 'on' : 'off') + '.');
+    });
+  });
+
+  document.addEventListener('gadapad:walletConnected', render);
+  setTimeout(render, 300);
+});
+</script>
+</body>
+</html>

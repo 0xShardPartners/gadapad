@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GADAPAD. The GIWA-native launchpad.</title>
+<meta name="description" content="Go early. Go verified. Every wallet is Dojang verified, every listing carries a named curator, and every treasury stays governed by the people who funded it.">
+<link rel="icon" href="media/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="cine">
+
+<header class="hdr">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="media/logo.png" alt=""><span>Gadapad</span></a>
+    <nav class="nav">
+      <a href="launchpad.html">Launchpad</a>
+      <a href="curators.html">Curators</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="testdrive.html">Test drive</a>
+    </nav>
+    <div class="hdr-act">
+      <span class="net"><i class="dot"></i>GIWA</span>
+      <div id="walletSlot"></div>
+      <button class="burger" aria-label="Menu" data-burger>
+        <svg width="18" height="12" viewBox="0 0 18 12"><path d="M0,1H18M0,6H18M0,11H18" stroke="currentColor" stroke-width="1.3"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <video autoplay muted loop playsinline preload="auto" poster="">
+      <source src="media/hero.mp4" type="video/mp4">
+    </video>
+    <div class="scrim"></div>
+    <div class="wrap">
+      <div class="hero-in">
+        <div class="eyebrow eyebrow-v" data-rev>GIWA native launchpad</div>
+        <h1 class="d1 mt4" data-rev style="transition-delay:70ms">Go early.<br>Go <em>verified</em>.</h1>
+        <p class="lede mt6" data-rev style="transition-delay:150ms">
+          <span class="kr">가다</span>, to go. GADAPAD is where the GIWA ecosystem launches on fair terms. Every wallet is verified through Dojang, every listing carries a named curator, and every treasury answers to the people who funded it rather than the team that raised it.
+        </p>
+        <div class="mt7" data-rev style="transition-delay:230ms; display:flex; gap:var(--s4); flex-wrap:wrap">
+          <a href="testdrive.html" class="btn btn-p">Try it live in five minutes</a>
+          <a href="#difference" class="btn btn-o">What makes this different</a>
+        </div>
+        <div class="hero-stats mt8" data-rev style="transition-delay:310ms">
+          <div><div class="v" data-num="19170000000" data-fmt="₩{n}">₩0</div><div class="k">raised, at the scale this is built for</div></div>
+          <div><div class="v" data-num="6">0</div><div class="k">launches, illustrative</div></div>
+          <div><div class="v" data-num="3210400000" data-fmt="₩{n}">₩0</div><div class="k">held under contributor vote</div></div>
+        </div>
+        <p class="fine mt3" data-rev style="transition-delay:340ms">Illustrative figures, at the scale GADAPAD is built for. <a href="project.html" style="color:var(--violet-lift)">Ondol Protocol</a> is the live GIWA Sepolia integration, and the <a href="testdrive.html" style="color:var(--violet-lift)">test drive</a> walks you through it end to end.</p>
+      </div>
+    </div>
+    <div class="cue"><i></i>Scroll</div>
+  </section>
+
+  <!-- ============================ ACTIVE ============================ -->
+  <section class="sect-sm" data-rev>
+    <div class="wrap">
+      <div class="between mb6">
+        <div class="eyebrow"><i class="dot"></i>Open now</div>
+        <a href="launchpad.html" class="lnk">All launches <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M0 4.5h10M7 1l3.5 3.5L7 8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+      </div>
+      <div class="g3" data-rev-g>
+
+        <a href="project.html" class="card card-i pcard" style="--art:#241E29; --glow:rgba(194,169,223,0.3)">
+          <div class="pc-art">
+            <svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice">
+              <path d="M0 122h400M0 138h400" stroke="#C2A9DF" stroke-opacity=".22" stroke-width="1"/>
+              <path d="M60 96c22-42 46-42 68 0s46 42 68 0 46-42 68 0 46 42 68 0" stroke="#C2A9DF" stroke-opacity=".5" stroke-width="1.4" fill="none"/>
+            </svg>
+            <span class="mk mk-live on-art"><i></i>Live</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top">
+              <div class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C2A9DF" stroke-width="1.6" stroke-linecap="round"><path d="M3 16h18M3 20h18M7 12c1.6-3.4 3.4-3.4 5 0s3.4 3.4 5 0"/></svg></div>
+              <div><div class="pc-name">Ondol Protocol</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>RWA yield</span></div></div>
+            </div>
+            <p class="pc-desc">Real world yield vaults for the GIWA ecosystem, collateralized by tokenized short term credit.</p>
+            <div class="curated"><span class="seal seal-sm">민</span><div><span>Curated by</span><b>Mina Cho</b></div></div>
+            <div class="pc-nums">
+              <div><div class="pc-k">Target</div><div class="pc-v">₩3,240,000,000</div></div>
+              <div><div class="pc-k">Price</div><div class="pc-v">₩43</div></div>
+            </div>
+            <div><div class="bar"><i data-fill="71"></i></div><div class="bar-row"><span>71% filled</span><span>Closes in 6h</span></div></div>
+            <div class="pc-gov"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="1.9"/><path d="M7.5 9V6.5a4.5 4.5 0 019 0V9" stroke="currentColor" stroke-width="1.9"/></svg>Treasury under contributor vote</div>
+          </div>
+        </a>
+
+        <a href="#" data-example="Baekje Finance" class="card card-i pcard" style="--art:#1A1F2D; --glow:rgba(147,164,216,0.3)">
+          <div class="pc-art">
+            <svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice">
+              <path d="M70 58h180l-40-40M330 100H150l40 40" stroke="#93A4D8" stroke-opacity=".5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="mk mk-live on-art"><i></i>Live</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top">
+              <div class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#93A4D8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5h15l-3.6-3.6M20.5 15.5h-15l3.6 3.6"/></svg></div>
+              <div><div class="pc-name">Baekje Finance</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>Perps DEX</span></div></div>
+            </div>
+            <p class="pc-desc">Cross margin perpetuals with sub second settlement, built for GIWA's execution layer.</p>
+            <div class="curated"><span class="seal seal-sm">D</span><div><span>Curated by</span><b>Daniel Ahn</b></div></div>
+            <div class="pc-nums">
+              <div><div class="pc-k">Target</div><div class="pc-v">₩4,050,000,000</div></div>
+              <div><div class="pc-k">Price</div><div class="pc-v">₩24</div></div>
+            </div>
+            <div><div class="bar"><i data-fill="44"></i></div><div class="bar-row"><span>44% filled</span><span>Closes in 1d 4h</span></div></div>
+            <div class="pc-gov"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="1.9"/><path d="M7.5 9V6.5a4.5 4.5 0 019 0V9" stroke="currentColor" stroke-width="1.9"/></svg>Treasury under contributor vote</div>
+          </div>
+        </a>
+
+        <a href="#" data-example="Bicheon" class="card card-i pcard" style="--art:#21182F; --glow:rgba(184,162,232,0.3)">
+          <div class="pc-art">
+            <svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice">
+              <path d="M40 30c125 0 150 98 300 98M40 79h300M40 128c125 0 150-98 300-98" stroke="#B8A2E8" stroke-opacity=".45" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            <span class="mk mk-wl on-art">Whitelist open</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top">
+              <div class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#B8A2E8" stroke-width="1.6" stroke-linecap="round"><path d="M3 4.5c7.5 0 9 7.5 18 7.5M3 12h18M3 19.5c7.5 0 9-7.5 18-7.5"/></svg></div>
+              <div><div class="pc-name">Bicheon</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>DEX aggregator</span></div></div>
+            </div>
+            <p class="pc-desc">Best execution routing across every GIWA liquidity venue, with MEV protected order flow.</p>
+            <div class="curated"><span class="seal seal-sm">유</span><div><span>Curated by</span><b>Yuna Seo</b></div></div>
+            <div class="pc-nums">
+              <div><div class="pc-k">Target</div><div class="pc-v">₩2,430,000,000</div></div>
+              <div><div class="pc-k">Price</div><div class="pc-v">₩11</div></div>
+            </div>
+            <div class="pc-foot"><span class="fine mono">4,821 registered</span><span class="fine mono">Closes in 2d 14h</span></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ DIFFERENCE ============================ -->
+  <section class="sect tint rule-top" id="difference" style="border-bottom:1px solid var(--border)" data-rev>
+    <div class="wrap">
+      <div class="eyebrow eyebrow-v mb4">Not a typical launchpad</div>
+      <h2 class="d2" style="max-width:15ch">Three things every other launchpad skips.</h2>
+      <div class="g3 mt8" data-rev-g>
+
+        <div>
+          <span class="seal seal-lg">認</span>
+          <h3 class="mt5">Verified, never anonymous</h3>
+          <p class="body mt3" style="font-size:14px">Every wallet that participates and every team that lists holds a <span class="kr">도장</span> Dojang verified address attestation. No token to stake, no capital tier to climb. One verification, and the same fixed allocation cap as everyone else.</p>
+          <a href="#verified" class="lnk mt4">How verification works <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M0 4.5h10M7 1l3.5 3.5L7 8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+        </div>
+
+        <div>
+          <span class="seal seal-lg">民</span>
+          <h3 class="mt5">Curated, never merely listed</h3>
+          <p class="body mt3" style="font-size:14px">A named curator from GIWA Foundation or a partner fund reads the contracts, runs the product on testnet, and puts their own on-chain reputation behind it. This is not a legal audit. It is one professional's word, on the record.</p>
+          <a href="curators.html" class="lnk mt4">Meet the curators <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M0 4.5h10M7 1l3.5 3.5L7 8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+        </div>
+
+        <div>
+          <span class="seal seal-lg" style="border-style:dashed">庫</span>
+          <h3 class="mt5">Governed, never abandoned</h3>
+          <p class="body mt3" style="font-size:14px">Funds raised do not move to a team wallet the moment a sale closes. They settle into a treasury and leave it only in tranches the contributors themselves vote to approve. Nothing else on GIWA works this way.</p>
+          <a href="#treasury" class="lnk mt4">How the treasury works <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M0 4.5h10M7 1l3.5 3.5L7 8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ VERIFIED ============================ -->
+  <section class="sect" id="verified" data-rev>
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <div class="eyebrow eyebrow-v">Verified and curated</div>
+          <h2 class="d3 mt4">Every launch has a name behind it.</h2>
+          <p class="body mt5">
+            A <span class="kr">도장</span> is a personal seal. In Korea you only stamp what you are willing to put your name to, and a curator's stamp here carries exactly that weight.
+          </p>
+          <p class="body mt4">
+            Someone from GIWA Foundation or a partner fund reviews the team, runs the product on testnet, and is comfortable being publicly associated with the result. It is not an audit and it is not a promise of returns. It is one professional's judgment, checked against a published minimum bar, with their name attached, before anything opens to the public.
+          </p>
+          <p class="fine mt5" style="max-width:50ch">
+            Every stamp is issued as a public attestation on the same open infrastructure behind <a href="https://docs.giwa.io/giwa-chain/en/giwa-ecosystem/dojang" target="_blank" rel="noopener" style="color:var(--violet-lift)">GIWA's Dojang</a>, built on Ethereum Attestation Service. There is nothing here you have to take our word for.
+          </p>
+          <a href="curators.html" class="btn btn-o mt6">Meet the curators</a>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden">
+          <a href="curator.html" class="card card-i" style="border:none; border-radius:0; background:var(--bg); padding:var(--s6); display:flex; gap:var(--s5)">
+            <span class="seal seal-lg">민</span>
+            <div style="min-width:0">
+              <div class="between"><h3>Mina Cho</h3><span class="mono fine">12 curated</span></div>
+              <div class="fine mb3">Ecosystem Lead, GIWA Foundation</div>
+              <p class="quote" style="font-size:16px; max-width:none">“I sat through two live demos of Ondol's yield engine before I would put my name on it.”</p>
+            </div>
+          </a>
+          <a href="curator.html" class="card card-i" style="border:none; border-radius:0; background:var(--bg); padding:var(--s6); display:flex; gap:var(--s5)">
+            <span class="seal seal-lg">D</span>
+            <div style="min-width:0">
+              <div class="between"><h3>Daniel Ahn</h3><span class="mono fine">9 curated</span></div>
+              <div class="fine mb3">Partner, Arclight Ventures</div>
+              <p class="quote" style="font-size:16px; max-width:none">“Not an audit. My own read on the team, after doing the work myself.”</p>
+            </div>
+          </a>
+          <a href="curator.html" class="card card-i" style="border:none; border-radius:0; background:var(--bg); padding:var(--s6); display:flex; gap:var(--s5)">
+            <span class="seal seal-lg">유</span>
+            <div style="min-width:0">
+              <div class="between"><h3>Yuna Seo</h3><span class="mono fine">6 curated</span></div>
+              <div class="fine mb3">Principal, Tideline Capital</div>
+              <p class="quote" style="font-size:16px; max-width:none">“If I would not recommend it to my own LPs, it does not get my stamp.”</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <p class="fine mt5">Curator profiles are illustrative, showing how the role would work. They are not real individuals or confirmed partners.</p>
+    </div>
+  </section>
+
+  <!-- ============================ TREASURY ============================ -->
+  <section class="sect tint rule-top" id="treasury" style="border-bottom:1px solid var(--border)" data-rev>
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <div class="eyebrow eyebrow-v">Participant governed treasury</div>
+          <h2 class="d3 mt4">Raising the money is the easy part. Spending it is where teams disappear.</h2>
+          <p class="body mt5">
+            On most launchpads a cleared sale sends funds straight to a wallet the team controls outright. From that moment the people who funded the raise have no mechanism left. They can only watch.
+          </p>
+          <p class="body mt4">
+            GADAPAD treats that gap as the actual point of failure. Funds settle into a treasury contract scoped to one launch, and hitting the hardcap does not unlock it. To spend anything the team files a request with a stated purpose, and the contributors who funded that launch vote on it, weighted by what they put in. No quorum, no release.
+          </p>
+          <a href="project.html#treasury" class="btn btn-o mt6">See a live treasury vote</a>
+        </div>
+
+        <div class="card" style="padding:var(--s6)">
+          <div class="eyebrow mb4">Ondol Protocol treasury</div>
+          <div class="tsum" style="display:block; padding:var(--s5)">
+            <div><div class="k">Held in treasury</div><div class="v hi">₩2,300,400,000</div></div>
+          </div>
+          <div class="req mt5">
+            <div class="req-top">
+              <div>
+                <span class="mk mk-vote"><i></i>Voting open</span>
+                <div class="req-what">Tranche 2, exchange listing and LP seeding</div>
+                <div class="req-when">Filed by Ondol Protocol, 2d left to vote</div>
+              </div>
+              <div class="req-amt">₩450,000,000</div>
+            </div>
+            <div class="vbar"><i class="y" style="width:78%"></i><i class="n" style="width:22%"></i></div>
+            <div class="vleg"><span class="y">78% approve</span><span class="q">41% of raise voted</span><span class="n">22% reject</span></div>
+            <div class="vnote">Quorum requires 25% of the total raised to vote before this request can finalize. Quorum has been met.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ UPCOMING ============================ -->
+  <section class="sect-sm" data-rev>
+    <div class="wrap">
+      <div class="between mb6">
+        <div class="eyebrow">Coming up</div>
+        <a href="launchpad.html" class="lnk">All launches <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M0 4.5h10M7 1l3.5 3.5L7 8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+      </div>
+      <div class="g3" data-rev-g>
+
+        <a href="#" data-example="Hanul Network" class="card card-i pcard" style="--art:#182329; --glow:rgba(143,181,201,0.28)">
+          <div class="pc-art">
+            <svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice"><circle cx="200" cy="122" r="7" fill="#8FB5C9" fill-opacity=".55"/><path d="M158 96a56 56 0 0184 0M120 66a100 100 0 01160 0" stroke="#8FB5C9" stroke-opacity=".42" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
+            <span class="mk on-art">Upcoming</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top">
+              <div class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8FB5C9" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="17.5" r="1.8" fill="#8FB5C9" stroke="none"/><path d="M6.4 13.4a7.9 7.9 0 0111.2 0M2.9 9.3a12.9 12.9 0 0118.2 0"/></svg></div>
+              <div><div class="pc-name">Hanul Network</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>Oracle</span></div></div>
+            </div>
+            <p class="pc-desc">Low latency price and RWA data feeds built for GIWA's block time.</p>
+            <div class="curated"><span class="seal seal-sm">민</span><div><span>Curated by</span><b>Mina Cho</b></div></div>
+            <div class="pc-foot"><span class="fine mono">Whitelist opens Aug 4</span></div>
+          </div>
+        </a>
+
+        <a href="#" data-example="Nuri Games" class="card card-i pcard" style="--art:#241E2C; --glow:rgba(191,160,214,0.28)">
+          <div class="pc-art">
+            <svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice"><rect x="130" y="28" width="72" height="72" stroke="#BFA0D6" stroke-opacity=".45" stroke-width="1.4"/><rect x="186" y="62" width="72" height="72" stroke="#BFA0D6" stroke-opacity=".45" stroke-width="1.4"/></svg>
+            <span class="mk on-art">Upcoming</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top">
+              <div class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#BFA0D6" stroke-width="1.6" stroke-linejoin="round"><rect x="3.5" y="3.5" width="11" height="11"/><rect x="9.5" y="9.5" width="11" height="11"/></svg></div>
+              <div><div class="pc-name">Nuri Games</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>Gaming</span></div></div>
+            </div>
+            <p class="pc-desc">On-chain economy layer for a slate of three GIWA native mobile titles.</p>
+            <div class="curated"><span class="seal seal-sm">J</span><div><span>Curated by</span><b>Jason Rho</b></div></div>
+            <div class="pc-foot"><span class="fine mono">Whitelist opens Aug 11</span></div>
+          </div>
+        </a>
+
+        <a href="#" data-example="Sori Labs" class="card card-i pcard" style="--art:#1F2028; --glow:rgba(163,168,203,0.24)">
+          <div class="pc-art">
+            <svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice"><path d="M120 52a44 44 0 010 54M170 32a80 80 0 010 94M220 14a116 116 0 010 130" stroke="#A3A8CB" stroke-opacity=".4" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <span class="mk mk-end on-art">Ended</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top">
+              <div class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#A3A8CB" stroke-width="1.6" stroke-linecap="round"><path d="M6.5 8.6a5.6 5.6 0 010 6.8M11.2 5.4a11 11 0 010 13.2M15.9 2.4a16.4 16.4 0 010 19.2"/></svg></div>
+              <div><div class="pc-name">Sori Labs</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>DePIN</span></div></div>
+            </div>
+            <p class="pc-desc">Decentralized audio streaming relay network with proof of bandwidth mining.</p>
+            <div class="curated"><span class="seal seal-sm">D</span><div><span>Curated by</span><b>Daniel Ahn</b></div></div>
+            <div class="pc-foot"><span class="fine mono">Raised ₩1,620,000,000</span><span class="fine mono" style="color:var(--yes)">2.1x</span></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STATS ============================ -->
+  <section class="sect-sm" data-rev>
+    <div class="wrap">
+      <div class="eyebrow mb4">At scale, illustrative</div>
+      <div class="stats">
+        <div><div class="k">Total value locked</div><div class="v" data-num="11610000000" data-fmt="₩{n}">₩0</div><div class="d">+4.2% this week</div></div>
+        <div><div class="k">Held under contributor vote</div><div class="v" data-num="3210400000" data-fmt="₩{n}">₩0</div></div>
+        <div><div class="k">Tokens distributed</div><div class="v">318M</div></div>
+        <div><div class="k">Verified wallets</div><div class="v" data-num="42180">0</div></div>
+      </div>
+      <p class="fine mt3">Figures above show GADAPAD at the scale it is designed for. Ondol Protocol's live testnet numbers are on <a href="project.html#treasury" style="color:var(--violet-lift)">its own treasury page</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============================ CLOSING ============================ -->
+  <section class="sect" data-rev>
+    <div class="wrap">
+      <div class="between" style="align-items:flex-end; gap:var(--s7)">
+        <div>
+          <div class="eyebrow eyebrow-v mb4">No prior investors. No token to buy in.</div>
+          <h2 class="d3" style="max-width:18ch">One verification, and the same terms as everyone else.</h2>
+          <p class="body mt5">
+            No project here has sold a private round to insiders ahead of its public sale, and there is no GADAPAD token to stake or capital tier to climb. Verify your wallet once through <span class="kr">도장</span> Dojang, GIWA's on-chain identity layer, and you are eligible for the same fixed allocation cap as every other participant, whether you are a fund or a first time wallet.
+          </p>
+        </div>
+        <a href="https://docs.giwa.io/giwa-chain/en/giwa-ecosystem/dojang" target="_blank" rel="noopener" class="btn btn-p" style="flex-shrink:0">How Dojang works</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div>
+        <a href="index.html" class="brand mb4"><img src="media/logo.png" alt=""><span>Gadapad</span></a>
+        <p class="fine" style="max-width:30ch">The GIWA-native launchpad. Verified, curated, and governed by the people who fund it.</p>
+      </div>
+      <div class="ftr-col"><h4>Platform</h4><a href="launchpad.html">Launchpad</a><a href="portfolio.html">Portfolio</a><a href="curators.html">Curators</a></div>
+      <div class="ftr-col"><h4>Resources</h4><a href="#">Documentation</a><a href="#">Security</a><a href="#">Brand</a></div>
+      <div class="ftr-col"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Risk disclosure</a></div>
+    </div>
+    <div class="ftr-btm">
+      <span>© 2026 GADAPAD. Not investment advice.</span>
+      <span class="chain"><i></i>Built on GIWA</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/web3-provider.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

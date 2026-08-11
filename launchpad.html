@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launchpad. GADAPAD.</title>
+<meta name="description" content="Every raise built for GIWA in one place. Each one verified through Dojang, reviewed by a named curator, and governed by its contributors.">
+<link rel="icon" href="media/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .ctl { height:40px; border:1px solid var(--border-strong); border-radius:var(--r-sm); background:var(--bg-elevated); color:var(--ink); font-size:13px; font-family:inherit; transition:border-color 200ms var(--ease), box-shadow 200ms var(--ease); }
+  select.ctl { padding:0 32px 0 12px; appearance:none; -webkit-appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23605C6F' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 12px center; }
+  input.ctl { padding:0 14px; width:210px; }
+  .ctl:focus { outline:none; border-color:var(--violet); box-shadow:0 0 0 3px var(--violet-wash); }
+  input.ctl::placeholder { color:var(--ink-3); }
+  @media (max-width:860px){ input.ctl{width:100%} .ctls{width:100%} select.ctl{flex:1} }
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="media/logo.png" alt=""><span>Gadapad</span></a>
+    <nav class="nav">
+      <a href="launchpad.html" class="on">Launchpad</a>
+      <a href="curators.html">Curators</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="testdrive.html">Test drive</a>
+    </nav>
+    <div class="hdr-act">
+      <span class="net"><i class="dot"></i>GIWA</span>
+      <div id="walletSlot"></div>
+      <button class="burger" aria-label="Menu" data-burger><svg width="18" height="12" viewBox="0 0 18 12"><path d="M0,1H18M0,6H18M0,11H18" stroke="currentColor" stroke-width="1.3"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="sect-sm" data-rev>
+    <div class="wrap">
+      <div class="eyebrow eyebrow-v">Launchpad</div>
+      <h1 class="d2 mt4">All launches</h1>
+      <p class="lede mt5">Every raise built for GIWA in one place. Filter by status, and see exactly who staked their name on each one and whether its treasury is still under contributor vote.</p>
+    </div>
+  </section>
+
+  <section class="sect-sm" style="padding-top:0" data-rev>
+    <div class="wrap">
+      <div class="between mb7">
+        <div class="tabs" id="filters" style="border:none">
+          <button class="tab on" data-f="all">All <span class="mono ink3">6</span></button>
+          <button class="tab" data-f="live">Live <span class="mono ink3">2</span></button>
+          <button class="tab" data-f="upcoming">Upcoming <span class="mono ink3">3</span></button>
+          <button class="tab" data-f="ended">Ended <span class="mono ink3">1</span></button>
+        </div>
+        <div class="ctls" style="display:flex; gap:var(--s3); flex-wrap:wrap">
+          <select id="sort" class="ctl" aria-label="Sort launches">
+            <option value="new">Newest</option>
+            <option value="size">Raise size</option>
+          </select>
+          <input type="text" id="q" class="ctl" placeholder="Search launches" aria-label="Search launches">
+        </div>
+      </div>
+
+      <div class="g3" id="grid" data-rev-g>
+
+        <a href="project.html" class="card card-i pcard" data-s="live" data-size="3240000000" data-i="1" style="--art:#241E29">
+          <div class="pc-art"><svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice"><path d="M0 122h400M0 138h400" stroke="#C2A9DF" stroke-opacity=".2"/><path d="M60 96c22-42 46-42 68 0s46 42 68 0 46-42 68 0 46 42 68 0" stroke="#C2A9DF" stroke-opacity=".5" stroke-width="1.4"/></svg><span class="mk mk-live on-art"><i></i>Live</span></div>
+          <div class="pc-body">
+            <div class="pc-top"><div class="pc-ico" style="--art:#241E29"><svg viewBox="0 0 24 24" fill="none" stroke="#C2A9DF" stroke-width="1.6" stroke-linecap="round"><path d="M3 16h18M3 20h18M7 12c1.6-3.4 3.4-3.4 5 0s3.4 3.4 5 0"/></svg></div><div><div class="pc-name">Ondol Protocol</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>RWA yield</span></div></div></div>
+            <p class="pc-desc">Real world yield vaults collateralized by tokenized short term credit.</p>
+            <div class="curated"><span class="seal seal-sm">민</span><div><span>Curated by</span><b>Mina Cho</b></div></div>
+            <div class="pc-nums"><div><div class="pc-k">Target</div><div class="pc-v">₩3,240,000,000</div></div><div><div class="pc-k">Price</div><div class="pc-v">₩43</div></div></div>
+            <div><div class="bar"><i data-fill="71"></i></div><div class="bar-row"><span>71% filled</span><span>Closes in 6h</span></div></div>
+          </div>
+        </a>
+
+        <a href="#" data-example="Baekje Finance" class="card card-i pcard" data-s="live" data-size="4050000000" data-i="2" style="--art:#1A1F2D">
+          <div class="pc-art"><svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice"><path d="M70 58h180l-40-40M330 100H150l40 40" stroke="#93A4D8" stroke-opacity=".5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mk mk-live on-art"><i></i>Live</span></div>
+          <div class="pc-body">
+            <div class="pc-top"><div class="pc-ico" style="--art:#1A1F2D"><svg viewBox="0 0 24 24" fill="none" stroke="#93A4D8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5h15l-3.6-3.6M20.5 15.5h-15l3.6 3.6"/></svg></div><div><div class="pc-name">Baekje Finance</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>Perps DEX</span></div></div></div>
+            <p class="pc-desc">Cross margin perpetuals with sub second settlement.</p>
+            <div class="curated"><span class="seal seal-sm">D</span><div><span>Curated by</span><b>Daniel Ahn</b></div></div>
+            <div class="pc-nums"><div><div class="pc-k">Target</div><div class="pc-v">₩4,050,000,000</div></div><div><div class="pc-k">Price</div><div class="pc-v">₩24</div></div></div>
+            <div><div class="bar"><i data-fill="44"></i></div><div class="bar-row"><span>44% filled</span><span>Closes in 1d 4h</span></div></div>
+          </div>
+        </a>
+
+        <a href="#" data-example="Bicheon" class="card card-i pcard" data-s="upcoming" data-size="2430000000" data-i="3" style="--art:#21182F">
+          <div class="pc-art"><svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice"><path d="M40 30c125 0 150 98 300 98M40 79h300M40 128c125 0 150-98 300-98" stroke="#B8A2E8" stroke-opacity=".45" stroke-width="1.4" stroke-linecap="round"/></svg><span class="mk mk-wl on-art">Whitelist open</span></div>
+          <div class="pc-body">
+            <div class="pc-top"><div class="pc-ico" style="--art:#21182F"><svg viewBox="0 0 24 24" fill="none" stroke="#B8A2E8" stroke-width="1.6" stroke-linecap="round"><path d="M3 4.5c7.5 0 9 7.5 18 7.5M3 12h18M3 19.5c7.5 0 9-7.5 18-7.5"/></svg></div><div><div class="pc-name">Bicheon</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>DEX aggregator</span></div></div></div>
+            <p class="pc-desc">Best execution routing with MEV protected order flow.</p>
+            <div class="curated"><span class="seal seal-sm">유</span><div><span>Curated by</span><b>Yuna Seo</b></div></div>
+            <div class="pc-nums"><div><div class="pc-k">Target</div><div class="pc-v">₩2,430,000,000</div></div><div><div class="pc-k">Price</div><div class="pc-v">₩11</div></div></div>
+            <div class="pc-foot"><span class="fine mono">4,821 registered</span><span class="fine mono">2d 14h</span></div>
+          </div>
+        </a>
+
+        <a href="#" data-example="Hanul Network" class="card card-i pcard" data-s="upcoming" data-size="2835000000" data-i="4" style="--art:#182329">
+          <div class="pc-art"><svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice"><circle cx="200" cy="122" r="7" fill="#8FB5C9" fill-opacity=".5"/><path d="M158 96a56 56 0 0184 0M120 66a100 100 0 01160 0" stroke="#8FB5C9" stroke-opacity=".42" stroke-width="1.4" stroke-linecap="round"/></svg><span class="mk on-art">Upcoming</span></div>
+          <div class="pc-body">
+            <div class="pc-top"><div class="pc-ico" style="--art:#182329"><svg viewBox="0 0 24 24" fill="none" stroke="#8FB5C9" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="17.5" r="1.8" fill="#8FB5C9" stroke="none"/><path d="M6.4 13.4a7.9 7.9 0 0111.2 0M2.9 9.3a12.9 12.9 0 0118.2 0"/></svg></div><div><div class="pc-name">Hanul Network</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>Oracle</span></div></div></div>
+            <p class="pc-desc">Low latency price and RWA data feeds for GIWA's block time.</p>
+            <div class="curated"><span class="seal seal-sm">민</span><div><span>Curated by</span><b>Mina Cho</b></div></div>
+            <div class="pc-foot"><span class="fine mono">Whitelist opens Aug 4</span></div>
+          </div>
+        </a>
+
+        <a href="#" data-example="Nuri Games" class="card card-i pcard" data-s="upcoming" data-size="2700000000" data-i="5" style="--art:#241E2C">
+          <div class="pc-art"><svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice"><rect x="130" y="28" width="72" height="72" stroke="#BFA0D6" stroke-opacity=".45" stroke-width="1.4"/><rect x="186" y="62" width="72" height="72" stroke="#BFA0D6" stroke-opacity=".45" stroke-width="1.4"/></svg><span class="mk on-art">Upcoming</span></div>
+          <div class="pc-body">
+            <div class="pc-top"><div class="pc-ico" style="--art:#241E2C"><svg viewBox="0 0 24 24" fill="none" stroke="#BFA0D6" stroke-width="1.6" stroke-linejoin="round"><rect x="3.5" y="3.5" width="11" height="11"/><rect x="9.5" y="9.5" width="11" height="11"/></svg></div><div><div class="pc-name">Nuri Games</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>Gaming</span></div></div></div>
+            <p class="pc-desc">On-chain economy layer for three GIWA native mobile titles.</p>
+            <div class="curated"><span class="seal seal-sm">J</span><div><span>Curated by</span><b>Jason Rho</b></div></div>
+            <div class="pc-foot"><span class="fine mono">Whitelist opens Aug 11</span></div>
+          </div>
+        </a>
+
+        <a href="#" data-example="Sori Labs" class="card card-i pcard" data-s="ended" data-size="1620000000" data-i="6" style="--art:#1F2028">
+          <div class="pc-art"><svg viewBox="0 0 400 158" fill="none" preserveAspectRatio="xMidYMid slice"><path d="M120 52a44 44 0 010 54M170 32a80 80 0 010 94M220 14a116 116 0 010 130" stroke="#A3A8CB" stroke-opacity=".4" stroke-width="1.4" stroke-linecap="round"/></svg><span class="mk mk-end on-art">Ended</span></div>
+          <div class="pc-body">
+            <div class="pc-top"><div class="pc-ico" style="--art:#1F2028"><svg viewBox="0 0 24 24" fill="none" stroke="#A3A8CB" stroke-width="1.6" stroke-linecap="round"><path d="M6.5 8.6a5.6 5.6 0 010 6.8M11.2 5.4a11 11 0 010 13.2M15.9 2.4a16.4 16.4 0 010 19.2"/></svg></div><div><div class="pc-name">Sori Labs</div><div class="pc-meta"><span class="chain"><i></i>GIWA</span><span>DePIN</span></div></div></div>
+            <p class="pc-desc">Decentralized audio streaming relay with proof of bandwidth.</p>
+            <div class="curated"><span class="seal seal-sm">D</span><div><span>Curated by</span><b>Daniel Ahn</b></div></div>
+            <div class="pc-foot"><span class="fine mono">Raised ₩1,620,000,000</span><span class="fine mono" style="color:var(--yes)">2.1x</span></div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="empty" id="none" style="display:none">
+        <div class="eyebrow">No results</div>
+        <p class="lede" style="font-size:16px">Nothing matches those filters.</p>
+        <button class="btn btn-o btn-sm mt3" id="reset">Reset filters</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-btm" style="border-top:none">
+      <span>© 2026 GADAPAD. Not investment advice.</span>
+      <span class="chain"><i></i>Built on GIWA</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/web3-provider.js"></script>
+<script src="js/app.js"></script>
+<script>
+(function () {
+  var grid = document.getElementById('grid');
+  var cards = [].slice.call(grid.querySelectorAll('.pcard'));
+  var none = document.getElementById('none');
+  var btns = [].slice.call(document.querySelectorAll('#filters .tab'));
+  var q = document.getElementById('q');
+  var sort = document.getElementById('sort');
+  var active = 'all';
+
+  function apply() {
+    var term = q.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (c) {
+      var name = c.querySelector('.pc-name').textContent.toLowerCase();
+      var ok = (active === 'all' || c.getAttribute('data-s') === active) && (!term || name.indexOf(term) !== -1);
+      c.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    none.style.display = shown ? 'none' : 'flex';
+    grid.style.display = shown ? 'grid' : 'none';
+  }
+
+  function order() {
+    var mode = sort.value;
+    cards.slice().sort(function (a, b) {
+      return mode === 'size'
+        ? b.getAttribute('data-size') - a.getAttribute('data-size')
+        : a.getAttribute('data-i') - b.getAttribute('data-i');
+    }).forEach(function (c) { grid.appendChild(c); });
+  }
+
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      btns.forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on');
+      active = b.getAttribute('data-f');
+      apply();
+    });
+  });
+  q.addEventListener('input', apply);
+  sort.addEventListener('change', order);
+  document.getElementById('reset').addEventListener('click', function () {
+    active = 'all';
+    btns.forEach(function (x) { x.classList.remove('on'); });
+    btns[0].classList.add('on');
+    q.value = '';
+    sort.value = 'new';
+    order();
+    apply();
+  });
+
+  order();
+  apply();
+})();
+</script>
+</body>
+</html>

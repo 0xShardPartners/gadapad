@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ondol Protocol. GADAPAD.</title>
+<meta name="description" content="Ondol Protocol, real world yield vaults for the GIWA ecosystem. Curated by Mina Cho. Treasury governed by contributors.">
+<link rel="icon" href="media/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="media/logo.png" alt=""><span>Gadapad</span></a>
+    <nav class="nav">
+      <a href="launchpad.html" class="on">Launchpad</a>
+      <a href="curators.html">Curators</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="testdrive.html">Test drive</a>
+    </nav>
+    <div class="hdr-act">
+      <span class="net"><i class="dot"></i>GIWA</span>
+      <div id="walletSlot"></div>
+      <button class="burger" aria-label="Menu" data-burger><svg width="18" height="12" viewBox="0 0 18 12"><path d="M0,1H18M0,6H18M0,11H18" stroke="currentColor" stroke-width="1.3"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="sect-sm">
+  <div class="wrap">
+    <div class="mono fine mb5"><a href="launchpad.html" class="ink3">Launchpad</a> / Ondol Protocol</div>
+
+    <div class="split-p">
+
+      <!-- ==================== LEFT ==================== -->
+      <div data-rev>
+
+        <div class="card" style="overflow:hidden">
+          <div style="position:relative; height:260px; background:#241E29; overflow:hidden">
+            <svg viewBox="0 0 900 260" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%">
+              <defs><radialGradient id="g" cx="18%" cy="120%" r="90%"><stop offset="0" stop-color="#9D6BFF" stop-opacity=".34"/><stop offset="1" stop-color="#9D6BFF" stop-opacity="0"/></radialGradient></defs>
+              <rect width="900" height="260" fill="url(#g)"/>
+              <path d="M0 200h900M0 226h900" stroke="#C2A9DF" stroke-opacity=".2"/>
+              <path d="M120 168c40-76 84-76 124 0s84 76 124 0 84-76 124 0 84 76 124 0 84-76 124 0" stroke="#C2A9DF" stroke-opacity=".45" stroke-width="1.6" fill="none"/>
+            </svg>
+            <span class="mk mk-live on-art" style="position:absolute; top:20px; right:20px"><i></i>Live</span>
+          </div>
+          <div style="padding:var(--s6)">
+            <div style="display:flex; gap:var(--s5); align-items:flex-start; flex-wrap:wrap">
+              <div class="pc-ico" style="width:58px;height:58px; --art:#241E29"><svg viewBox="0 0 24 24" fill="none" stroke="#C2A9DF" stroke-width="1.5" stroke-linecap="round"><path d="M3 16h18M3 20h18M7 12c1.6-3.4 3.4-3.4 5 0s3.4 3.4 5 0"/></svg></div>
+              <div style="flex:1; min-width:240px">
+                <h1 class="d3">Ondol Protocol</h1>
+                <p class="body mt3" style="font-size:14.5px">Real world yield vaults for the GIWA ecosystem, collateralized by tokenized short term credit.</p>
+                <div style="display:flex; align-items:center; gap:var(--s5); flex-wrap:wrap; margin-top:16px">
+                  <span class="chain"><i></i>GIWA</span>
+                  <span class="fine">RWA yield</span>
+                  <span style="display:flex; gap:var(--s4)">
+                    <a href="#" class="lnk">Site</a><a href="#" class="lnk">X</a><a href="#" class="lnk">Docs</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="fl mt6">
+              <div><svg width="14" height="14" viewBox="0 0 15 15" fill="none"><path d="M2 7.5 6 11.5 13 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>No prior investors</b><span>No private round sold ahead of this listing</span></div></div>
+              <div><svg width="14" height="14" viewBox="0 0 15 15" fill="none"><path d="M2 7.5 6 11.5 13 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Uniform terms</b><span>Same rate and same cap for every wallet</span></div></div>
+              <div><svg width="14" height="14" viewBox="0 0 15 15" fill="none"><path d="M2 7.5 6 11.5 13 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Treasury governed</b><span>Contributors vote to release funds</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs mt8" data-tabs="p">
+          <button class="tab on" data-tab="overview">Overview</button>
+          <button class="tab" data-tab="treasury">Treasury</button>
+          <button class="tab" data-tab="token">Token</button>
+          <button class="tab" data-tab="curator">Curator note</button>
+          <button class="tab" data-tab="rules">Fair launch</button>
+        </div>
+
+        <!-- OVERVIEW -->
+        <div class="pane on" data-group="p" data-tab="overview">
+          <p class="body">Ondol Protocol builds real world asset yield vaults for the GIWA ecosystem. Each vault is collateralized by tokenized short term credit instruments, including trade receivables and invoice financing sourced from vetted originators, and pays out on-chain in a GIWA native stablecoin as the underlying credit performs rather than as a fixed APY.</p>
+          <p class="body mt4">Originators are onboarded through a credit committee that reviews payment history and collateral quality before any receivable is tokenized. Vault performance, repayment schedules, and default events are all readable on-chain, so LPs are not relying on a quarterly PDF to know what they hold.</p>
+          <p class="body mt4">The team has run two testnet cohorts with institutional LPs since Q1, processing over <span class="mono">₩54,000,000,000</span> in simulated vault volume before bringing the product to a public sale.</p>
+
+          <h3 class="mt8 mb5">Highlights</h3>
+          <ul class="bul">
+            <li>Yield paid as the underlying credit performs, never promised as a fixed APY</li>
+            <li>Vaults collateralized by short term trade receivables rather than synthetic leverage</li>
+            <li>Two completed testnet cohorts, over ₩54,000,000,000 in simulated volume</li>
+            <li>Reference calls completed with two institutional LPs already using the product</li>
+            <li>Native to GIWA's execution layer from day one, not a bridged TVL sink</li>
+          </ul>
+
+          <div class="eyebrow mt8 mb5">Roadmap</div>
+          <div class="g4">
+            <div><i style="display:block;width:5px;height:5px;background:var(--border-strong);margin-bottom:12px"></i><div class="mono" style="font-size:12px">Q1 2026</div><div class="fine mt2">Testnet yield engine live, LP onboarding opens</div></div>
+            <div><i style="display:block;width:5px;height:5px;background:var(--border-strong);margin-bottom:12px"></i><div class="mono" style="font-size:12px">Q2 2026</div><div class="fine mt2">Security review with GIWA Foundation, originators signed</div></div>
+            <div><i style="display:block;width:5px;height:5px;background:var(--violet);margin-bottom:12px"></i><div class="mono" style="font-size:12px; color:var(--ink)">Q3 2026</div><div class="fine mt2" style="color:var(--ink-2)">Public sale and mainnet vault launch, underway now</div></div>
+            <div><i style="display:block;width:5px;height:5px;background:var(--border-strong);margin-bottom:12px"></i><div class="mono" style="font-size:12px">Q4 2026</div><div class="fine mt2">Medium term credit vault, cross chain vault access</div></div>
+          </div>
+        </div>
+
+        <!-- TREASURY -->
+        <div class="pane" data-group="p" data-tab="treasury">
+          <div class="eyebrow eyebrow-v mb4">Participant governed treasury</div>
+          <p class="body">Funds raised in this sale settle into a treasury contract scoped to Ondol Protocol alone. Reaching the hardcap does not unlock it. To spend anything the team files a request with a stated purpose, and every wallet that contributed to this raise can vote, weighted by what it put in. No quorum, no release.</p>
+
+          <div class="eyebrow eyebrow-v mb3">Live on GIWA Sepolia</div>
+          <p class="fine mb5" style="max-width:62ch">Everything below reads directly from <a href="https://sepolia-explorer.giwa.io/address/0x2D64D2fc7CD2d8Ab7e4fE12Aa66e36b31DA8dC7c" target="_blank" rel="noopener" style="color:var(--violet-lift)">the treasury governor contract</a> on GIWA Sepolia testnet. Approve or reject with a connected wallet and it sends a real transaction.</p>
+
+          <div class="tsum mt6">
+            <div><div class="k">Held in treasury</div><div class="v hi" id="tHeld">…</div></div>
+            <div><div class="k">Raised in this sale</div><div class="v" id="tRaised">…</div></div>
+          </div>
+
+          <h3 class="mt8 mb5">Open request</h3>
+          <div class="req">
+            <div class="req-top">
+              <div>
+                <span class="mk mk-vote" id="reqStatus"><i></i>Voting open</span>
+                <div class="req-what" id="reqPurpose">Loading request from chain…</div>
+                <div class="req-when" id="reqWhen"></div>
+              </div>
+              <div class="req-amt" id="reqAmt">…</div>
+            </div>
+
+            <div class="vbar"><i class="y" id="vy" style="width:0%"></i><i class="n" id="vn" style="width:0%"></i></div>
+            <div class="vleg"><span class="y" id="vyp">0% approve</span><span class="q" id="vq">0% of raise voted</span><span class="n" id="vnp">0% reject</span></div>
+            <div class="vnote" id="vquorum">Quorum requires 25% of the total raised to vote before this request can finalize, and more than half the weight cast must be in favour.</div>
+
+            <div id="preVote">
+              <div class="vnote" id="myWeightNote" style="border:none; padding-top:6px">Connect a wallet to see your vote weight.</div>
+              <div class="vacts">
+                <button class="btn btn-yes" id="vyes">Approve</button>
+                <button class="btn btn-no" id="vno">Reject</button>
+              </div>
+            </div>
+            <div id="postVote" style="display:none">
+              <div class="vcast">
+                <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><path d="M2 7.5 6 11.5 13 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>You voted <strong id="vchoice">approve</strong> on this request. This reads straight back from the contract.</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="fine mt5" style="max-width:62ch">Every request, vote, and release is a transaction against Ondol Protocol's own treasury governor, independent of GADAPAD. Nothing here relies on our word for it.</p>
+
+          <div class="card mt7" style="padding:var(--s6)">
+            <div class="eyebrow eyebrow-v mb3">Dojang enforcement, proven on-chain</div>
+            <p class="body" style="font-size:13.5px">The sale above is intentionally open, so you can test the full participate and vote flow without holding a Dojang attestation. GADAPAD's real sale contracts enforce Dojang verification directly on-chain. <a href="https://sepolia-explorer.giwa.io/address/0xA1A45D3c8Ff997Da12cD679bF57166c9b547f510" target="_blank" rel="noopener" style="color:var(--violet-lift)">A second, Dojang-gated Ondol Protocol contract</a> is deployed as proof: a wallet without a Verified Address attestation gets a genuine <span class="mono">NotVerified()</span> revert from <span class="mono">participate()</span>, checked live against GIWA's own DojangScroll contract.</p>
+            <div class="row mt4"><span class="k">Your wallet's Dojang status</span><span class="v" id="dojangStatus">Connect a wallet to check</span></div>
+          </div>
+        </div>
+
+        <!-- TOKEN -->
+        <div class="pane" data-group="p" data-tab="token">
+          <div class="g4">
+            <div class="card" style="padding:var(--s5)"><div class="pc-k">Token</div><div class="mono" style="font-size:17px">ONDOL</div></div>
+            <div class="card" style="padding:var(--s5)"><div class="pc-k">Total supply</div><div class="mono" style="font-size:17px">500,000,000</div></div>
+            <div class="card" style="padding:var(--s5)"><div class="pc-k">At TGE</div><div class="mono" style="font-size:17px">100,000,000</div></div>
+            <div class="card" style="padding:var(--s5)"><div class="pc-k">Initial cap</div><div class="mono" style="font-size:17px">₩4.3B</div></div>
+          </div>
+
+          <h3 class="mt8 mb3">Distribution</h3>
+          <p class="fine mb5" style="max-width:58ch">No allocation to prior investors. Every wallet outside the team and ecosystem reserve entered through this same public sale.</p>
+          <div style="display:flex; height:10px; border-radius:5px; overflow:hidden; border:1px solid var(--border)">
+            <i style="flex:20; background:var(--violet)"></i>
+            <i style="flex:40; background:rgba(244,242,247,0.15)"></i>
+            <i style="flex:20; background:var(--border-strong)"></i>
+            <i style="flex:20; background:var(--ink-3)"></i>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:var(--s3); margin-top:var(--s5)">
+            <div style="display:flex; align-items:center; gap:9px; font-size:13px"><i style="width:8px;height:8px;background:var(--violet)"></i>Public sale<span class="mono fine" style="margin-left:auto">20%</span></div>
+            <div style="display:flex; align-items:center; gap:9px; font-size:13px"><i style="width:8px;height:8px;background:rgba(244,242,247,0.15)"></i>Ecosystem<span class="mono fine" style="margin-left:auto">40%</span></div>
+            <div style="display:flex; align-items:center; gap:9px; font-size:13px"><i style="width:8px;height:8px;background:var(--border-strong)"></i>Protocol reserve<span class="mono fine" style="margin-left:auto">20%</span></div>
+            <div style="display:flex; align-items:center; gap:9px; font-size:13px"><i style="width:8px;height:8px;background:var(--ink-3)"></i>Team<span class="mono fine" style="margin-left:auto">20%</span></div>
+          </div>
+
+          <div class="mt8" style="overflow-x:auto">
+            <table class="tbl" style="min-width:500px">
+              <thead><tr><th>Category</th><th>At TGE</th><th>Cliff</th><th>Vesting</th></tr></thead>
+              <tbody>
+                <tr><td>Public sale</td><td class="n">30%</td><td class="n">None</td><td class="n">6mo</td></tr>
+                <tr><td>Ecosystem</td><td class="n">0%</td><td class="n">None</td><td class="n">36mo</td></tr>
+                <tr><td>Protocol reserve</td><td class="n">0%</td><td class="n">12mo</td><td class="n">24mo</td></tr>
+                <tr><td>Team</td><td class="n">0%</td><td class="n">12mo</td><td class="n">24mo</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CURATOR -->
+        <div class="pane" data-group="p" data-tab="curator">
+          <div style="display:flex; align-items:center; gap:var(--s4); margin-bottom:var(--s7)">
+            <span class="seal seal-lg">민</span>
+            <div>
+              <div style="font-size:17px; font-weight:600">Mina Cho</div>
+              <div class="fine mt1">Ecosystem Lead, GIWA Foundation</div>
+              <div class="mono fine mt1" style="letter-spacing:0.1em; text-transform:uppercase">Curated Mar 14, 2026</div>
+              <div class="fine mt2">Illustrative, not a real individual or a confirmed partner.</div>
+            </div>
+          </div>
+
+          <p class="quote quote-lg" style="max-width:34ch; font-size:clamp(19px,2vw,26px)">“I spent three weeks with the Ondol team, reviewing contracts with our security lead, sitting through two live demos of the yield engine on testnet, and calling two of their institutional LPs directly. The team has shipped production DeFi before. This is not an audit. It is my own read after doing the work, and I am comfortable putting my name on it.”</p>
+
+          <div class="eyebrow mt8 mb5">What I checked</div>
+          <ul class="bul" style="max-width:56ch">
+            <li>Team backgrounds verified against prior shipped projects</li>
+            <li>Contracts read line by line with our internal security lead</li>
+            <li>Live testnet walkthrough of the yield engine, not a deck</li>
+            <li>Confirmed no allocation was sold to investors ahead of this listing</li>
+            <li>Reference calls with two institutional LPs already using the product</li>
+          </ul>
+
+          <p class="fine mt7" style="max-width:58ch">This is one curator's professional judgment. It is not a legal, financial, or security audit, and it is not investment advice.</p>
+
+          <div class="att mt5" style="max-width:56ch">
+            <div class="att-hd">
+              <div class="l"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.3" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 12.3 10.3 15.1 16.5 8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lb">On-chain attestation</span></div>
+            </div>
+            <div class="att-f">
+              <div><div class="k">Schema</div><div class="v">GADAPAD Verified Curator</div></div>
+              <div><div class="k">Attester</div><div class="v">0x2B91…b8A4</div></div>
+              <div><div class="k">Recipient</div><div class="v">0x8F1C…5f8A</div></div>
+              <div><div class="k">Issued</div><div class="v">Mar 14, 2026</div></div>
+            </div>
+            <div class="att-ft"><span>Built on Ethereum Attestation Service</span><a href="#">View on GIWA Explorer</a></div>
+          </div>
+        </div>
+
+        <!-- FAIR LAUNCH -->
+        <div class="pane" data-group="p" data-tab="rules">
+          <div class="eyebrow eyebrow-v mb4">Fair launch standard</div>
+          <p class="body">Ondol Protocol has not sold any allocation to investors ahead of this listing, and curators confirm that during review before a sale is scheduled. There is no GADAPAD token to buy or stake and no capital tier to climb. Complete Dojang verification once and every wallet is eligible for the same flat allocation cap on this sale, <span class="mono">₩2,025,000</span>, whether it belongs to a fund or to a first time participant. Beyond verification, participation is first come first served while the sale is live.</p>
+
+          <h3 class="mt8 mb3">Frequently asked</h3>
+          <div class="acc">
+            <button><span>What happens if I do not use my full allocation?</span><i><svg width="13" height="13" viewBox="0 0 14 14"><path d="M7,0V14M0,7H14" stroke="currentColor" stroke-width="1.4"/></svg></i></button>
+            <div class="p"><div>Unused allocation is simply returned. Nothing is charged unless you commit funds, and there is no penalty for contributing less than your maximum.</div></div>
+          </div>
+          <div class="acc">
+            <button><span>Does holding more give me a bigger allocation?</span><i><svg width="13" height="13" viewBox="0 0 14 14"><path d="M7,0V14M0,7H14" stroke="currentColor" stroke-width="1.4"/></svg></i></button>
+            <div class="p"><div>No. Every verified wallet gets the same ₩2,025,000 cap on this sale. There is no GADAPAD token to stake and no capital weighted tier, so a larger balance never buys a larger allocation.</div></div>
+          </div>
+          <div class="acc">
+            <button><span>Who approves spending the funds raised?</span><i><svg width="13" height="13" viewBox="0 0 14 14"><path d="M7,0V14M0,7H14" stroke="currentColor" stroke-width="1.4"/></svg></i></button>
+            <div class="p"><div>You do, along with everyone else who contributed. Funds sit in Ondol's treasury contract and move only when contributors vote to approve a specific stated release. See the Treasury tab.</div></div>
+          </div>
+          <div class="acc">
+            <button><span>Is there a minimum contribution?</span><i><svg width="13" height="13" viewBox="0 0 14 14"><path d="M7,0V14M0,7H14" stroke="currentColor" stroke-width="1.4"/></svg></i></button>
+            <div class="p"><div>Yes, the minimum is ₩67,500 while the sale is live. Every verified wallet participates on the same terms, so no tier waives the minimum.</div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== RIGHT ==================== -->
+      <aside class="aside" data-rev>
+        <div class="panel">
+          <div class="panel-hd"><span class="mk mk-live"><i></i>Sale live on GIWA Sepolia</span></div>
+
+          <div class="mt2">
+            <div class="bar"><i id="saleBar" data-fill="0"></i></div>
+            <div class="bar-row"><span id="saleRaised">Loading…</span><span id="saleCap"></span></div>
+          </div>
+
+          <div class="mt6">
+            <div class="row"><span class="k">Your contribution</span><span class="v" id="myContribution">Connect wallet</span></div>
+            <div class="row"><span class="k">GKRW balance</span><span class="v" id="myBalance">Connect wallet</span></div>
+          </div>
+
+          <div class="mt5">
+            <label for="amount" class="pc-k" style="display:block">Amount in GKRW</label>
+            <div class="amt">
+              <input type="number" id="amount" value="1000" min="1000" max="150000" step="1" aria-label="Amount in GKRW">
+              <button type="button" id="maxBtn">Max</button>
+            </div>
+            <div class="row"><span class="k">You receive</span><span class="v" id="receive">10 ONDOL</span></div>
+          </div>
+
+          <button class="btn btn-p btn-block mt5" id="participateRealBtn">Participate now</button>
+          <p class="fine mt3">Sends a real approve, then a real participate transaction to <span class="mono">0xc4CB…D1f6E</span> on GIWA Sepolia. Needs testnet GKRW, claim some from the faucet in the wallet menu.</p>
+        </div>
+
+        <div class="panel" style="border-color:var(--violet-dim)">
+          <div class="panel-hd">
+            <h3>Treasury, governed by you</h3>
+            <span class="mk mk-vote"><i></i>1 open</span>
+          </div>
+          <p class="fine mb4">Once you contribute you get a vote on how this treasury is spent, weighted by your contribution.</p>
+          <button class="btn btn-o btn-sm btn-block" id="goTreasury">View the open request</button>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd"><h3>At a glance</h3></div>
+          <div class="row"><span class="k">Rate</span><span class="v">100 GKRW = 1 ONDOL</span></div>
+          <div class="row"><span class="k">Filled</span><span class="v" id="glanceFilled">…</span></div>
+          <div class="row"><span class="k">Hard cap</span><span class="v">₩150,000,000</span></div>
+          <div class="row"><span class="k">Min contribution</span><span class="v">₩1,000</span></div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-btm" style="border-top:none">
+      <span>© 2026 GADAPAD. Not investment advice.</span>
+      <span class="chain"><i></i>Built on GIWA</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/web3-provider.js"></script>
+<script src="js/app.js"></script>
+<script>
+(function () {
+  var REQUEST_ID = 1;
+  var RATE = 100;
+  var amount = document.getElementById('amount');
+  var receive = document.getElementById('receive');
+  var maxBtn = document.getElementById('maxBtn');
+
+  function calc() {
+    if (!amount || !receive) return;
+    var n = parseFloat(amount.value) || 0;
+    receive.textContent = Math.round(n / RATE).toLocaleString('en-US') + ' ONDOL';
+  }
+  if (amount) { amount.addEventListener('input', calc); calc(); }
+  if (maxBtn) maxBtn.addEventListener('click', function () { amount.value = 150000; calc(); });
+
+  var go = document.getElementById('goTreasury');
+  if (go) go.addEventListener('click', function () {
+    var t = document.querySelector('.tab[data-tab="treasury"]');
+    if (t) { t.click(); t.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  });
+
+  function krw(n) { return '₩' + Math.round(n).toLocaleString('en-US'); }
+
+  /* Catch the two failure modes a first time reviewer actually hits, no
+     gas and no GKRW, before the wallet throws something cryptic at them. */
+  async function preflight(needGKRW) {
+    var acc = window.giwaWeb3.account;
+    if (!acc) return true; // connect flow will handle it
+    try {
+      var eth = await window.giwaWeb3.getEthBalance(acc);
+      if (eth < 200000000000000n) {
+        showToast('danger', 'No gas', 'This wallet holds almost no test ETH, so the transaction cannot be sent. The <a href="testdrive.html" style="color:var(--violet-lift);text-decoration:underline">test drive</a> walks you through the faucet in one step.');
+        return false;
+      }
+      if (needGKRW) {
+        var bal = await window.giwaWeb3.getGKRWBalance(acc);
+        if (Number(bal) / 1e18 < needGKRW) {
+          showToast('danger', 'Not enough GKRW', 'This wallet holds ' + (Number(bal) / 1e18).toLocaleString('en-US') + ' GKRW. Claim 100,000 free testnet GKRW from the wallet menu, or on the <a href="testdrive.html" style="color:var(--violet-lift);text-decoration:underline">test drive</a>.');
+          return false;
+        }
+      }
+    } catch (e) { /* RPC hiccup, let the transaction attempt proceed */ }
+    return true;
+  }
+  function fmtCountdown(sec) {
+    if (sec <= 0) return 'Voting closed';
+    var d = Math.floor(sec / 86400), h = Math.floor((sec % 86400) / 3600), m = Math.floor((sec % 3600) / 60);
+    return d + 'd ' + h + 'h ' + m + 'm left to vote';
+  }
+
+  var pre = document.getElementById('preVote'), post = document.getElementById('postVote');
+  var vy = document.getElementById('vy'), vn = document.getElementById('vn');
+  var vyp = document.getElementById('vyp'), vnp = document.getElementById('vnp');
+  var vq = document.getElementById('vq'), choice = document.getElementById('vchoice');
+  var yesBtn = document.getElementById('vyes'), noBtn = document.getElementById('vno');
+
+  var poolState = null;
+
+  async function refreshPool() {
+    if (!window.giwaWeb3) return;
+    try {
+      var addr = window.giwaWeb3.account;
+      var s = await window.giwaWeb3.getPoolState(addr);
+      poolState = s;
+      document.getElementById('saleRaised').textContent = krw(s.totalRaisedGKRW * 1000) + ' raised';
+      document.getElementById('saleCap').textContent = 'of ' + krw(s.hardCapGKRW * 1000);
+      var pct = s.hardCapGKRW > 0 ? Math.min(100, (s.totalRaisedGKRW / s.hardCapGKRW) * 100) : 0;
+      var bar = document.getElementById('saleBar');
+      if (bar) bar.style.width = pct.toFixed(1) + '%';
+      document.getElementById('glanceFilled').textContent = pct.toFixed(1) + '%';
+
+      if (addr) {
+        document.getElementById('myContribution').textContent = s.userContributedGKRW.toLocaleString('en-US') + ' GKRW';
+        var bal = await window.giwaWeb3.getGKRWBalance(addr);
+        document.getElementById('myBalance').textContent = (Number(bal) / 1e18).toLocaleString('en-US') + ' GKRW';
+      } else {
+        document.getElementById('myContribution').textContent = 'Connect wallet';
+        document.getElementById('myBalance').textContent = 'Connect wallet';
+      }
+    } catch (e) { /* RPC hiccup, leave last known values on screen */ }
+  }
+
+  async function refreshTreasury() {
+    if (!window.giwaWeb3) return;
+    try {
+      var t = await window.giwaWeb3.getTreasuryState();
+      document.getElementById('tHeld').textContent = krw(t.treasuryBalanceGKRW * 1000);
+      var pool = poolState || await window.giwaWeb3.getPoolState();
+      document.getElementById('tRaised').textContent = krw(pool.totalRaisedGKRW * 1000);
+
+      var r = await window.giwaWeb3.getRequest(REQUEST_ID);
+      document.getElementById('reqPurpose').textContent = r.purpose || ('Request #' + REQUEST_ID);
+      document.getElementById('reqAmt').textContent = krw(r.amountGKRW * 1000);
+
+      var totalVoted = r.yesGKRW + r.noGKRW;
+      var yesPct = totalVoted > 0 ? (r.yesGKRW / totalVoted) * 100 : 0;
+      var noPct = totalVoted > 0 ? 100 - yesPct : 0;
+      vy.style.width = yesPct.toFixed(1) + '%';
+      vn.style.width = noPct.toFixed(1) + '%';
+      vyp.textContent = yesPct.toFixed(1) + '% approve';
+      vnp.textContent = noPct.toFixed(1) + '% reject';
+      var votedPctOfRaise = pool.totalRaisedGKRW > 0 ? (totalVoted / pool.totalRaisedGKRW) * 100 : 0;
+      vq.textContent = votedPctOfRaise.toFixed(1) + '% of raise voted';
+
+      var status = document.getElementById('reqStatus');
+      var now = Math.floor(Date.now() / 1000);
+      if (r.finalized) {
+        status.className = r.approved ? 'mk mk-ok' : 'mk';
+        status.innerHTML = r.approved ? 'Approved and released' : 'Rejected';
+        document.getElementById('reqWhen').textContent = 'Voting closed.';
+        yesBtn.disabled = true; noBtn.disabled = true;
+      } else {
+        document.getElementById('reqWhen').textContent = fmtCountdown(r.deadline - now);
+      }
+
+      document.getElementById('vquorum').textContent = 'Quorum requires 25% of the total raised to vote before this request can finalize, and more than half the weight cast must be in favour. ' +
+        (votedPctOfRaise >= 25 ? 'Quorum has been met.' : 'Quorum has not been met yet.');
+
+      var addr = window.giwaWeb3.account;
+      if (addr) {
+        var contributed = poolState ? poolState.userContributedGKRW : 0;
+        var myPct = pool.totalRaisedGKRW > 0 ? (contributed / pool.totalRaisedGKRW) * 100 : 0;
+        document.getElementById('myWeightNote').innerHTML = 'Your weight, from a <span class="mono" style="color:var(--ink-2)">' + contributed.toLocaleString('en-US') + ' GKRW</span> contribution, is <span class="mono" style="color:var(--ink-2)">' + myPct.toFixed(2) + '%</span> of this raise.';
+        var voted = await window.giwaWeb3.hasVotedOn(REQUEST_ID, addr);
+        if (voted || r.finalized) {
+          pre.style.display = 'none';
+          post.style.display = 'block';
+        } else if (contributed === 0) {
+          document.getElementById('myWeightNote').textContent = 'This wallet has not contributed to the sale, so it has no vote weight on this request.';
+          yesBtn.disabled = true; noBtn.disabled = true;
+        }
+      }
+    } catch (e) { /* RPC hiccup */ }
+  }
+
+  async function refreshDojang() {
+    if (!window.giwaWeb3 || !window.giwaWeb3.account) {
+      var el = document.getElementById('dojangStatus');
+      if (el) el.textContent = 'Connect a wallet to check';
+      return;
+    }
+    try {
+      var verified = await window.giwaWeb3.isDojangVerified(window.giwaWeb3.account);
+      var el2 = document.getElementById('dojangStatus');
+      if (el2) {
+        el2.textContent = verified ? 'Verified' : 'Not verified';
+        el2.style.color = verified ? 'var(--yes)' : 'var(--no)';
+      }
+    } catch (e) {}
+  }
+
+  function refreshAll() { refreshPool(); refreshTreasury(); refreshDojang(); }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(refreshAll, 300);
+    document.addEventListener('gadapad:walletConnected', refreshAll);
+  });
+
+  if (yesBtn) yesBtn.addEventListener('click', function () { doVote(true); });
+  if (noBtn) noBtn.addEventListener('click', function () { doVote(false); });
+
+  async function doVote(support) {
+    if (!window.giwaWeb3.account) {
+      try { await window.giwaWeb3.connectWallet(); } catch (e) { return; }
+    }
+    if (!(await preflight(0))) return;
+    yesBtn.disabled = true; noBtn.disabled = true;
+    var label = support ? 'Approve' : 'Reject';
+    var busyBtn = support ? yesBtn : noBtn;
+    var prevText = busyBtn.textContent;
+    busyBtn.textContent = 'Confirm in wallet…';
+    try {
+      var tx = await window.giwaWeb3.castVote(REQUEST_ID, support);
+      showToast('info', 'Vote submitted', 'Your ' + label.toLowerCase() + ' vote is on its way to GIWA Sepolia.', tx);
+      busyBtn.textContent = 'Waiting for confirmation…';
+      await pollForVote(tx);
+      choice.textContent = label.toLowerCase();
+      pre.style.display = 'none';
+      post.style.display = 'block';
+      showToast('success', 'Vote confirmed', 'Your ' + label.toLowerCase() + ' vote was recorded on the treasury governor.', tx);
+      refreshTreasury();
+    } catch (err) {
+      yesBtn.disabled = false; noBtn.disabled = false;
+      busyBtn.textContent = prevText;
+      showToast('danger', 'Vote failed', (err && err.message) || 'The transaction was rejected or reverted.');
+    }
+  }
+
+  async function pollForVote(txHash) {
+    for (var i = 0; i < 20; i++) {
+      await new Promise(function (r) { setTimeout(r, 1500); });
+      var voted = await window.giwaWeb3.hasVotedOn(REQUEST_ID, window.giwaWeb3.account);
+      if (voted) return;
+    }
+  }
+
+  var participateBtn = document.getElementById('participateRealBtn');
+  if (participateBtn) {
+    participateBtn.addEventListener('click', async function () {
+      if (!window.giwaWeb3.account) {
+        try { await window.giwaWeb3.connectWallet(); } catch (e) { return; }
+      }
+      var amountGKRW = parseFloat(amount.value) || 0;
+      if (amountGKRW < 1000) { showToast('danger', 'Amount too low', 'The minimum contribution is 1,000 GKRW.'); return; }
+      if (!(await preflight(amountGKRW))) return;
+
+      participateBtn.disabled = true;
+      try {
+        var weiAmount = BigInt(Math.floor(amountGKRW * 1e18));
+        var allowance = await window.giwaWeb3.getGKRWAllowance();
+        if (allowance < weiAmount) {
+          participateBtn.textContent = 'Approving GKRW…';
+          var approveTx = await window.giwaWeb3.approveGKRW(amountGKRW);
+          showToast('info', 'Approval submitted', 'Approving GKRW spend for the sale contract.', approveTx);
+          for (var i = 0; i < 20; i++) {
+            await new Promise(function (r) { setTimeout(r, 1500); });
+            var a = await window.giwaWeb3.getGKRWAllowance();
+            if (a >= weiAmount) break;
+          }
+        }
+        participateBtn.textContent = 'Confirm deposit…';
+        var tx = await window.giwaWeb3.participatePool(amountGKRW);
+        showToast('info', 'Deposit submitted', 'Broadcasting to GIWA Sepolia.', tx);
+        participateBtn.textContent = 'Waiting for confirmation…';
+        for (var j = 0; j < 20; j++) {
+          await new Promise(function (r) { setTimeout(r, 1500); });
+          var s = await window.giwaWeb3.getPoolState(window.giwaWeb3.account);
+          if (s.userContributedGKRW >= amountGKRW - 0.001) break;
+        }
+        showToast('success', 'Participation confirmed', 'Deposited ' + amountGKRW.toLocaleString('en-US') + ' GKRW into the Ondol Protocol sale.', tx);
+        refreshAll();
+      } catch (err) {
+        showToast('danger', 'Deposit failed', (err && err.message) || 'The transaction was rejected or reverted.');
+      } finally {
+        participateBtn.disabled = false;
+        participateBtn.textContent = 'Participate now';
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio. GADAPAD.</title>
+<meta name="description" content="Track your allocations, claims, vesting, and open treasury votes across every GADAPAD launch.">
+<link rel="icon" href="media/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="media/logo.png" alt=""><span>Gadapad</span></a>
+    <nav class="nav">
+      <a href="launchpad.html">Launchpad</a>
+      <a href="curators.html">Curators</a>
+      <a href="portfolio.html" class="on">Portfolio</a>
+      <a href="testdrive.html">Test drive</a>
+    </nav>
+    <div class="hdr-act">
+      <span class="net"><i class="dot"></i>GIWA</span>
+      <div id="walletSlot"></div>
+      <button class="burger" aria-label="Menu" data-burger><svg width="18" height="12" viewBox="0 0 18 12"><path d="M0,1H18M0,6H18M0,11H18" stroke="currentColor" stroke-width="1.3"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="sect-sm" data-rev>
+    <div class="wrap">
+      <div class="eyebrow eyebrow-v">Portfolio</div>
+      <h1 class="d2 mt4">Your allocations</h1>
+      <p class="lede mt4">Everything you have committed to, claimed, or hold a vote on, across the GIWA ecosystem.</p>
+    </div>
+  </section>
+
+  <div id="gate" class="sect-sm">
+    <div class="wrap">
+      <div class="card empty" style="max-width:520px; margin:0 auto" data-rev>
+        <img src="media/logo.png" alt="" style="width:44px; opacity:.45">
+        <h3 class="mt3" style="font-size:18px">Connect your wallet to see your portfolio</h3>
+        <p class="fine" style="max-width:38ch">Your active allocations, claimable tokens, and any treasury votes open on launches you funded.</p>
+        <button class="btn btn-p mt3" id="gateBtn">Connect wallet</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content" style="display:none">
+    <section class="sect-sm" data-rev>
+      <div class="wrap">
+        <div class="stats">
+          <div><div class="k">Committed to Ondol Protocol</div><div class="v" id="statCommitted">…</div></div>
+          <div><div class="k">Tokens owed at claim</div><div class="v" id="statTokens">…</div></div>
+          <div><div class="k">Claimable now</div><div class="v" id="statClaimable">…</div></div>
+          <div><div class="k">Open treasury votes</div><div class="v" id="statVotes" style="color:var(--violet-lift)">…</div></div>
+        </div>
+        <p class="fine mt3">Real numbers, read live from Ondol Protocol's sale and treasury contracts on GIWA Sepolia for this wallet.</p>
+      </div>
+    </section>
+
+    <section class="sect-sm" data-rev>
+      <div class="wrap">
+        <div class="card" style="padding:var(--s7)">
+          <div class="tabs" data-tabs="pf">
+            <button class="tab on" data-tab="active">Active</button>
+            <button class="tab" data-tab="gov">Governance</button>
+            <button class="tab" data-tab="past">Past</button>
+          </div>
+
+          <div class="pane on" data-group="pf" data-tab="active">
+            <div style="display:flex; flex-direction:column; gap:var(--s3)" id="activeList">
+
+              <div class="card" style="display:flex; align-items:center; gap:var(--s5); padding:var(--s5); flex-wrap:wrap" id="ondolRow">
+                <div class="pc-ico" style="--art:#241E29"><svg viewBox="0 0 24 24" fill="none" stroke="#C2A9DF" stroke-width="1.6" stroke-linecap="round"><path d="M3 16h18M3 20h18M7 12c1.6-3.4 3.4-3.4 5 0s3.4 3.4 5 0"/></svg></div>
+                <div style="flex:1; min-width:220px">
+                  <div class="between"><h3>Ondol Protocol</h3><span class="mk" id="ondolStatus">Loading…</span></div>
+                  <div class="fine mt1">Live on GIWA Sepolia</div>
+                  <div style="display:flex; gap:var(--s6); margin-top:12px; flex-wrap:wrap">
+                    <div><div class="pc-k">Committed</div><div class="pc-v" id="ondolCommitted">…</div></div>
+                    <div><div class="pc-k">Tokens</div><div class="pc-v" id="ondolTokens">…</div></div>
+                  </div>
+                </div>
+                <a href="project.html" class="btn btn-o btn-sm">View launch</a>
+              </div>
+
+              <div class="card" style="display:flex; align-items:center; gap:var(--s5); padding:var(--s5); flex-wrap:wrap">
+                <div class="pc-ico" style="--art:#21182F"><svg viewBox="0 0 24 24" fill="none" stroke="#B8A2E8" stroke-width="1.6" stroke-linecap="round"><path d="M3 4.5c7.5 0 9 7.5 18 7.5M3 12h18M3 19.5c7.5 0 9-7.5 18-7.5"/></svg></div>
+                <div style="flex:1; min-width:200px">
+                  <div class="between"><h3>Bicheon</h3><span class="mk">Example</span></div>
+                  <div class="fine mt1">Format preview, not a real holding or a deployed contract.</div>
+                </div>
+                <a href="#" data-example="Bicheon" class="btn btn-o btn-sm">View launch</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="pane" data-group="pf" data-tab="gov">
+            <p class="body mb6" style="font-size:14px">Every launch you funded gives you a vote on how its treasury is spent, weighted by your contribution. This reads live from Ondol Protocol's treasury governor.</p>
+            <div id="govContent">
+              <p class="fine">Loading from chain…</p>
+            </div>
+          </div>
+
+          <div class="pane" data-group="pf" data-tab="past">
+            <p class="fine">No closed positions yet. Ondol Protocol's sale is still open, once it and future GADAPAD launches finalize, they will appear here.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-btm" style="border-top:none">
+      <span>© 2026 GADAPAD. Not investment advice.</span>
+      <span class="chain"><i></i>Built on GIWA</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/web3-provider.js"></script>
+<script src="js/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var gate = document.getElementById('gate');
+  var content = document.getElementById('content');
+  var REQUEST_ID = 1;
+
+  function krw(n) { return '₩' + Math.round(n).toLocaleString('en-US'); }
+
+  function showGate() { gate.style.display = ''; content.style.display = 'none'; }
+  function showContent() { gate.style.display = 'none'; content.style.display = ''; loadPortfolio(); }
+
+  async function checkWallet() {
+    if (window.giwaWeb3 && window.giwaWeb3.account) showContent();
+    else showGate();
+  }
+
+  async function loadPortfolio() {
+    var acc = window.giwaWeb3.account;
+    if (!acc) return;
+    try {
+      var pool = await window.giwaWeb3.getPoolState(acc);
+      var committed = pool.userContributedGKRW;
+      var tokens = committed / 100; // rate: 100 GKRW = 1 ONDOL
+
+      document.getElementById('statCommitted').textContent = krw(committed * 1000);
+      document.getElementById('statTokens').textContent = tokens.toLocaleString('en-US') + ' ONDOL';
+      document.getElementById('statClaimable').textContent = pool.userClaimed ? '0, already claimed' : (committed > 0 ? 'Not open yet' : '0');
+
+      document.getElementById('ondolCommitted').textContent = committed > 0 ? krw(committed * 1000) : 'None yet';
+      document.getElementById('ondolTokens').textContent = tokens > 0 ? tokens.toLocaleString('en-US') + ' ONDOL' : '…';
+      document.getElementById('ondolStatus').textContent = committed > 0 ? 'Committed' : 'Not yet committed';
+      var row = document.getElementById('ondolRow');
+      if (committed === 0) row.style.opacity = '0.6';
+
+      var hasVoted = false, weight = 0;
+      try {
+        hasVoted = await window.giwaWeb3.hasVotedOn(REQUEST_ID, acc);
+        weight = committed;
+      } catch (e) {}
+      document.getElementById('statVotes').textContent = (!hasVoted && weight > 0) ? '1' : '0';
+
+      var govEl = document.getElementById('govContent');
+      if (weight === 0) {
+        govEl.innerHTML = '<p class="fine">This wallet has not contributed to any GADAPAD sale yet, so it has no vote weight anywhere. <a href="project.html" style="color:var(--violet-lift)">Participate in Ondol Protocol</a> to get one.</p>';
+      } else {
+        try {
+          var r = await window.giwaWeb3.getRequest(REQUEST_ID);
+          var totalVoted = r.yesGKRW + r.noGKRW;
+          var yesPct = totalVoted > 0 ? (r.yesGKRW / totalVoted) * 100 : 0;
+          var myPct = pool.totalRaisedGKRW > 0 ? (committed / pool.totalRaisedGKRW) * 100 : 0;
+          govEl.innerHTML =
+            '<div class="req"><div class="req-top"><div>' +
+            '<div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">' +
+            '<span style="font-size:13px; font-weight:600; color:var(--ink-2)">Ondol Protocol</span>' +
+            '<span class="mk ' + (r.finalized ? '' : 'mk-vote') + '"><i></i>' + (r.finalized ? (r.approved ? 'Approved' : 'Rejected') : 'Voting open') + '</span>' +
+            '</div><div class="req-what">' + (r.purpose || 'Treasury request') + '</div>' +
+            '</div><div class="req-amt">' + krw(r.amountGKRW * 1000) + '</div></div>' +
+            '<div class="vbar"><i class="y" style="width:' + yesPct.toFixed(1) + '%"></i><i class="n" style="width:' + (100 - yesPct).toFixed(1) + '%"></i></div>' +
+            '<div class="vnote">Your weight, from a ' + krw(committed * 1000) + ' contribution, is ' + myPct.toFixed(2) + '% of this raise.' + (hasVoted ? ' You already voted on this.' : '') + '</div>' +
+            '<a href="project.html#treasury" class="btn btn-o btn-sm mt5">Review' + (hasVoted ? '' : ' and vote') + '</a></div>';
+        } catch (e) {
+          govEl.innerHTML = '<p class="fine">Could not load the request from chain right now.</p>';
+        }
+      }
+    } catch (e) {
+      showToast('danger', 'Could not load portfolio', 'The RPC read failed, try refreshing.');
+    }
+  }
+
+  document.addEventListener('gadapad:walletConnected', checkWallet);
+  setTimeout(checkWallet, 350);
+
+  var b = document.getElementById('gateBtn');
+  if (b) b.addEventListener('click', function () {
+    var h = document.getElementById('connectBtn');
+    if (h) h.click();
+  });
+});
+</script>
+</body>
+</html>
