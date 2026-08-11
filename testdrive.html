@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test drive. GADAPAD.</title>
+<meta name="description" content="Try GADAPAD live on GIWA Sepolia in about five minutes. Every step below is a real transaction against real contracts, and the page checks your progress on chain as you go.">
+<link rel="icon" href="media/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="media/logo.png" alt=""><span>Gadapad</span></a>
+    <nav class="nav">
+      <a href="launchpad.html">Launchpad</a>
+      <a href="curators.html">Curators</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="testdrive.html" class="on">Test drive</a>
+    </nav>
+    <div class="hdr-act">
+      <span class="net"><i class="dot"></i>GIWA</span>
+      <div id="walletSlot"></div>
+      <button class="burger" aria-label="Menu" data-burger><svg width="18" height="12" viewBox="0 0 18 12"><path d="M0,1H18M0,6H18M0,11H18" stroke="currentColor" stroke-width="1.3"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="sect-sm" data-rev>
+    <div class="wrap">
+      <div class="eyebrow eyebrow-v">Test drive</div>
+      <h1 class="d2 mt4" style="max-width:16ch">Try the real thing in five minutes</h1>
+      <p class="lede mt5" style="max-width:56ch">
+        Nothing on this page is simulated. Every step is a real transaction against GADAPAD's deployed contracts on GIWA Sepolia, and the page reads your progress back from the chain as you go.
+      </p>
+      <div class="mt5" style="display:flex; gap:var(--s6); flex-wrap:wrap">
+        <span class="live-val"><span class="lv-dot"></span>Raised so far <b id="lvRaised"><span class="ld"></span></b></span>
+        <span class="live-val"><span class="lv-dot"></span>Held in treasury <b id="lvHeld"><span class="ld"></span></b></span>
+        <span class="live-val"><span class="lv-dot"></span>Open votes <b id="lvVotes"><span class="ld"></span></b></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect-sm" style="padding-top:0" data-rev>
+    <div class="wrap" style="max-width:820px; margin:0">
+
+      <!-- STEP 1: wallet -->
+      <div class="td-step" id="st1">
+        <span class="td-num">1</span>
+        <div class="td-body">
+          <div class="td-title">Have a wallet ready</div>
+          <p class="td-desc">Any EIP 1193 wallet works. MetaMask is the quickest if you don't have one installed.</p>
+          <div class="td-status" id="st1s"><i></i>Checking</div>
+          <div class="td-act" id="st1a" style="display:none">
+            <a class="btn btn-o btn-sm" href="https://metamask.io/download/" target="_blank" rel="noopener">Get MetaMask</a>
+          </div>
+        </div>
+        <svg class="td-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8.5 15 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- STEP 2: connect + network -->
+      <div class="td-step" id="st2">
+        <span class="td-num">2</span>
+        <div class="td-body">
+          <div class="td-title">Connect on GIWA Sepolia</div>
+          <p class="td-desc">One click adds the network to your wallet and connects. Chain ID 91342, one second blocks.</p>
+          <div class="td-status" id="st2s"><i></i>Waiting on step 1</div>
+          <div class="td-act">
+            <button class="btn btn-p btn-sm" id="st2b">Connect and switch network</button>
+          </div>
+        </div>
+        <svg class="td-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8.5 15 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- STEP 3: gas -->
+      <div class="td-step" id="st3">
+        <span class="td-num">3</span>
+        <div class="td-body">
+          <div class="td-title">Hold a little test ETH for gas</div>
+          <p class="td-desc">Transactions on GIWA Sepolia cost fractions of a cent in test ETH. A tiny amount covers this whole page.</p>
+          <div class="td-status" id="st3s"><i></i>Waiting on step 2</div>
+          <div class="td-act" id="st3a" style="display:none">
+            <a class="btn btn-o btn-sm" id="st3faucet" href="https://faucet.giwa.io" target="_blank" rel="noopener">Open the GIWA faucet</a>
+            <span class="fine">Then come back, this page rechecks on its own.</span>
+          </div>
+        </div>
+        <svg class="td-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8.5 15 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- STEP 4: GKRW -->
+      <div class="td-step" id="st4">
+        <span class="td-num">4</span>
+        <div class="td-body">
+          <div class="td-title">Claim testnet GKRW</div>
+          <p class="td-desc">GKRW is the KRW stablecoin launches raise in. The faucet contract sends 100,000 to any wallet, once per day.</p>
+          <div class="td-status" id="st4s"><i></i>Waiting on step 3</div>
+          <div class="td-act">
+            <button class="btn btn-p btn-sm" id="st4b">Claim 100,000 GKRW</button>
+          </div>
+        </div>
+        <svg class="td-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8.5 15 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- STEP 5: participate -->
+      <div class="td-step" id="st5">
+        <span class="td-num">5</span>
+        <div class="td-body">
+          <div class="td-title">Participate in the live sale</div>
+          <p class="td-desc">Commits 1,000 GKRW to the Ondol Protocol sale, the minimum. Your wallet asks twice, once to approve the spend and once to deposit.</p>
+          <div class="td-status" id="st5s"><i></i>Waiting on step 4</div>
+          <div class="td-act">
+            <button class="btn btn-p btn-sm" id="st5b">Participate with 1,000 GKRW</button>
+            <a class="lnk" href="project.html">Or use the full sale page <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M0 4.5h10M7 1l3.5 3.5L7 8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+          </div>
+        </div>
+        <svg class="td-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8.5 15 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- STEP 6: vote -->
+      <div class="td-step" id="st6">
+        <span class="td-num">6</span>
+        <div class="td-body">
+          <div class="td-title">Vote on the treasury request</div>
+          <p class="td-desc">This is the part no other launchpad has. The Ondol team has a live request to release funds, and your contribution just gave you a weighted vote on it.</p>
+          <div class="td-status" id="st6s"><i></i>Waiting on step 5</div>
+          <div class="td-act">
+            <button class="btn btn-yes btn-sm" id="st6y">Approve</button>
+            <button class="btn btn-no btn-sm" id="st6n">Reject</button>
+            <a class="lnk" href="project.html#treasury">See the request <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M0 4.5h10M7 1l3.5 3.5L7 8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+          </div>
+        </div>
+        <svg class="td-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8.5 15 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- done -->
+      <div class="card mt6" id="tdDone" style="display:none; padding:var(--s6); border-color:rgba(99,200,138,0.32)">
+        <div class="eyebrow" style="color:var(--yes)">All six steps confirmed on chain</div>
+        <p class="body mt3" style="font-size:14.5px">You just did the full loop: verified network, funded wallet, a real contribution, and a weighted vote on how that money gets spent. Every transaction is public on the explorer, nothing above relied on this page's word for it.</p>
+        <div class="mt4" style="display:flex; gap:var(--s3); flex-wrap:wrap">
+          <a class="btn btn-o btn-sm" id="tdMyTxs" href="#" target="_blank" rel="noopener">My transactions on the explorer</a>
+          <a class="btn btn-o btn-sm" href="portfolio.html">My portfolio</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- no wallet path -->
+  <section class="sect-sm rule-top" data-rev>
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <div class="eyebrow">Reviewing without a wallet</div>
+          <h2 class="d3 mt4" style="max-width:16ch">The chain doesn't need you to log in</h2>
+          <p class="body mt4">Everything this prototype claims is independently checkable on the GIWA Sepolia explorer. The contracts below are the ones every button on this site talks to.</p>
+        </div>
+        <div class="card" style="padding:var(--s6)">
+          <div class="row"><span class="k">Sale pool, Ondol Protocol</span><a class="v mono" style="color:var(--violet-lift)" href="https://sepolia-explorer.giwa.io/address/0xc4CBA11C5FBB35B6cF81e37b8374B6aEBD5D1f6E" target="_blank" rel="noopener">0xc4CB&#8230;1f6E</a></div>
+          <div class="row"><span class="k">Treasury governor</span><a class="v mono" style="color:var(--violet-lift)" href="https://sepolia-explorer.giwa.io/address/0x2D64D2fc7CD2d8Ab7e4fE12Aa66e36b31DA8dC7c" target="_blank" rel="noopener">0x2D64&#8230;dC7c</a></div>
+          <div class="row"><span class="k">Dojang gated pool</span><a class="v mono" style="color:var(--violet-lift)" href="https://sepolia-explorer.giwa.io/address/0xA1A45D3c8Ff997Da12cD679bF57166c9b547f510" target="_blank" rel="noopener">0xA1A4&#8230;f510</a></div>
+          <div class="row"><span class="k">GKRW token</span><a class="v mono" style="color:var(--violet-lift)" href="https://sepolia-explorer.giwa.io/token/0xADF8DCa14aBc9F88aCd24f62f6eeBd1299726eeE" target="_blank" rel="noopener">0xADF8&#8230;6eeE</a></div>
+          <div class="row"><span class="k">GKRW faucet</span><a class="v mono" style="color:var(--violet-lift)" href="https://sepolia-explorer.giwa.io/address/0x139F572212f412F07dDA7568FD6FC188eBB0BbE7" target="_blank" rel="noopener">0x139F&#8230;BbE7</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-btm" style="border-top:none">
+      <span>© 2026 GADAPAD. Not investment advice.</span>
+      <span class="chain"><i></i>Built on GIWA</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/web3-provider.js"></script>
+<script src="js/app.js"></script>
+<script>
+(function () {
+  var REQUEST_ID = 1;
+  var MIN_GAS_WEI = 200000000000000n;      // 0.0002 ETH covers this whole page on GIWA Sepolia
+  var DEMO_GKRW = 1000;
+
+  function el(id) { return document.getElementById(id); }
+  function krw(n) { return '₩' + Math.round(n).toLocaleString('en-US'); }
+
+  function setStep(n, state, statusText, statusKind) {
+    var step = el('st' + n);
+    step.classList.remove('is-done', 'is-active');
+    if (state === 'done') step.classList.add('is-done');
+    if (state === 'active') step.classList.add('is-active');
+    var s = el('st' + n + 's');
+    if (s && statusText !== undefined) {
+      s.className = 'td-status' + (statusKind ? ' ' + statusKind : '');
+      s.innerHTML = '<i></i>' + statusText;
+    }
+  }
+
+  /* ---- live header stats, no wallet needed ---- */
+  async function headerStats() {
+    try {
+      var pool = await window.giwaWeb3.getPoolState();
+      el('lvRaised').textContent = krw(pool.totalRaisedGKRW * 1000);
+      var t = await window.giwaWeb3.getTreasuryState();
+      el('lvHeld').textContent = krw(t.treasuryBalanceGKRW * 1000);
+      var r = await window.giwaWeb3.getRequest(REQUEST_ID);
+      el('lvVotes').textContent = r.finalized ? '0' : '1';
+    } catch (e) { /* leave skeletons on RPC failure */ }
+  }
+
+  /* ---- the checklist state machine, all read from chain ---- */
+  var busy = false;
+  async function refresh() {
+    if (busy) return;
+    var hasWallet = typeof window.ethereum !== 'undefined';
+
+    if (!hasWallet) {
+      setStep(1, 'active', 'No wallet detected in this browser', 'warn');
+      el('st1a').style.display = 'flex';
+      for (var i = 2; i <= 6; i++) setStep(i, '', 'Waiting on step 1');
+      return;
+    }
+    setStep(1, 'done', 'Wallet detected', 'ok');
+    el('st1a').style.display = 'none';
+
+    var acc = window.giwaWeb3.account;
+    var onGiwa = window.giwaWeb3.isGiwaNetwork;
+    if (!acc || !onGiwa) {
+      setStep(2, 'active', acc ? 'Connected, wrong network' : 'Not connected yet', acc ? 'warn' : '');
+      for (var j = 3; j <= 6; j++) setStep(j, '', 'Waiting on step 2');
+      return;
+    }
+    setStep(2, 'done', acc.slice(0, 6) + '…' + acc.slice(-4) + ' on GIWA Sepolia', 'ok');
+
+    try {
+      var eth = await window.giwaWeb3.getEthBalance(acc);
+      if (eth < MIN_GAS_WEI) {
+        setStep(3, 'active', 'Balance ' + (Number(eth) / 1e18).toFixed(5) + ' ETH, not enough for gas', 'warn');
+        el('st3a').style.display = 'flex';
+        for (var k = 4; k <= 6; k++) setStep(k, '', 'Waiting on step 3');
+        return;
+      }
+      setStep(3, 'done', (Number(eth) / 1e18).toFixed(4) + ' ETH, plenty for gas', 'ok');
+      el('st3a').style.display = 'none';
+
+      var gkrw = await window.giwaWeb3.getGKRWBalance(acc);
+      var gkrwNum = Number(gkrw) / 1e18;
+      if (gkrwNum < DEMO_GKRW) {
+        setStep(4, 'active', 'Balance ' + gkrwNum.toLocaleString('en-US') + ' GKRW', '');
+        for (var m = 5; m <= 6; m++) setStep(m, '', 'Waiting on step 4');
+        return;
+      }
+      setStep(4, 'done', gkrwNum.toLocaleString('en-US') + ' GKRW in wallet', 'ok');
+
+      var pool = await window.giwaWeb3.getPoolState(acc);
+      if (pool.userContributedGKRW <= 0) {
+        setStep(5, 'active', 'No contribution from this wallet yet', '');
+        setStep(6, '', 'Waiting on step 5');
+        return;
+      }
+      setStep(5, 'done', pool.userContributedGKRW.toLocaleString('en-US') + ' GKRW contributed', 'ok');
+
+      var req = await window.giwaWeb3.getRequest(REQUEST_ID);
+      if (req.finalized) {
+        setStep(6, 'done', 'This voting window has closed', 'ok');
+        finish(acc);
+        return;
+      }
+      var voted = await window.giwaWeb3.hasVotedOn(REQUEST_ID, acc);
+      if (voted) {
+        setStep(6, 'done', 'Vote recorded on chain', 'ok');
+        finish(acc);
+      } else {
+        setStep(6, 'active', 'One open request, your weight is ready', '');
+      }
+    } catch (e) {
+      /* transient RPC failure, statuses keep their last known state */
+    }
+  }
+
+  function finish(acc) {
+    var d = el('tdDone');
+    d.style.display = 'block';
+    el('tdMyTxs').href = 'https://sepolia-explorer.giwa.io/address/' + acc;
+  }
+
+  /* ---- actions ---- */
+  el('st2b').addEventListener('click', async function () {
+    var b = this;
+    b.disabled = true; b.textContent = 'Check your wallet…';
+    try {
+      await window.giwaWeb3.connectWallet();
+      try { localStorage.setItem('gadapad_wallet', '1'); } catch (e) {}
+      document.dispatchEvent(new CustomEvent('gadapad:walletConnected', { detail: { account: window.giwaWeb3.account } }));
+      showToast('success', 'Connected', 'You are on GIWA Sepolia. The next steps unlocked.');
+    } catch (err) {
+      showToast('danger', 'Connection failed', (err && err.message) || 'The request was rejected in the wallet.');
+    } finally {
+      b.disabled = false; b.textContent = 'Connect and switch network';
+      refresh();
+    }
+  });
+
+  el('st4b').addEventListener('click', async function () {
+    var b = this;
+    if (!window.giwaWeb3.account) { showToast('info', 'One step back', 'Connect your wallet in step 2 first.'); return; }
+    b.disabled = true; b.textContent = 'Confirm in wallet…';
+    busy = true;
+    try {
+      var remaining = await window.giwaWeb3.faucetCooldownRemaining();
+      if (remaining > 0) {
+        showToast('info', 'Cooldown active', 'This wallet claimed within the last day. If you already hold GKRW, step 5 is open anyway.');
+        return;
+      }
+      var tx = await window.giwaWeb3.requestGKRWFaucet();
+      showToast('info', 'Claim submitted', 'Waiting for GIWA Sepolia to confirm.', tx);
+      b.textContent = 'Confirming…';
+      for (var i = 0; i < 20; i++) {
+        await new Promise(function (r) { setTimeout(r, 1500); });
+        var bal = await window.giwaWeb3.getGKRWBalance();
+        if (Number(bal) / 1e18 >= DEMO_GKRW) break;
+      }
+      showToast('success', 'GKRW received', '100,000 testnet GKRW is in your wallet.', tx);
+    } catch (err) {
+      showToast('danger', 'Claim failed', (err && err.message) || 'The transaction was rejected or reverted.');
+    } finally {
+      busy = false;
+      b.disabled = false; b.textContent = 'Claim 100,000 GKRW';
+      refresh();
+    }
+  });
+
+  el('st5b').addEventListener('click', async function () {
+    var b = this;
+    if (!window.giwaWeb3.account) { showToast('info', 'One step back', 'Connect your wallet in step 2 first.'); return; }
+    b.disabled = true;
+    busy = true;
+    try {
+      var wei = BigInt(DEMO_GKRW) * 10n ** 18n;
+      var allowance = await window.giwaWeb3.getGKRWAllowance();
+      if (allowance < wei) {
+        b.textContent = 'Approve in wallet…';
+        var atx = await window.giwaWeb3.approveGKRW(DEMO_GKRW);
+        showToast('info', 'Approval submitted', 'First of two transactions.', atx);
+        for (var i = 0; i < 20; i++) {
+          await new Promise(function (r) { setTimeout(r, 1500); });
+          if (await window.giwaWeb3.getGKRWAllowance() >= wei) break;
+        }
+      }
+      b.textContent = 'Confirm deposit…';
+      var tx = await window.giwaWeb3.participatePool(DEMO_GKRW);
+      showToast('info', 'Deposit submitted', 'Second of two, broadcasting now.', tx);
+      b.textContent = 'Confirming…';
+      for (var j = 0; j < 20; j++) {
+        await new Promise(function (r) { setTimeout(r, 1500); });
+        var s = await window.giwaWeb3.getPoolState(window.giwaWeb3.account);
+        if (s.userContributedGKRW > 0) break;
+      }
+      showToast('success', 'You are in the raise', '1,000 GKRW committed to Ondol Protocol. Step 6 is now open.', tx);
+    } catch (err) {
+      showToast('danger', 'Deposit failed', (err && err.message) || 'The transaction was rejected or reverted.');
+    } finally {
+      busy = false;
+      b.disabled = false; b.textContent = 'Participate with 1,000 GKRW';
+      refresh();
+    }
+  });
+
+  async function vote(support, btn) {
+    if (!window.giwaWeb3.account) { showToast('info', 'One step back', 'Connect your wallet in step 2 first.'); return; }
+    var other = support ? el('st6n') : el('st6y');
+    btn.disabled = true; other.disabled = true;
+    var prev = btn.textContent;
+    btn.textContent = 'Confirm in wallet…';
+    busy = true;
+    try {
+      var tx = await window.giwaWeb3.castVote(REQUEST_ID, support);
+      showToast('info', 'Vote submitted', 'Broadcasting to the treasury governor.', tx);
+      btn.textContent = 'Confirming…';
+      for (var i = 0; i < 20; i++) {
+        await new Promise(function (r) { setTimeout(r, 1500); });
+        if (await window.giwaWeb3.hasVotedOn(REQUEST_ID)) break;
+      }
+      showToast('success', 'Vote recorded', 'Your ' + (support ? 'approve' : 'reject') + ' vote is on chain, weighted by your contribution.', tx);
+    } catch (err) {
+      showToast('danger', 'Vote failed', (err && err.message) || 'The transaction was rejected or reverted.');
+    } finally {
+      busy = false;
+      btn.disabled = false; other.disabled = false; btn.textContent = prev;
+      refresh();
+    }
+  }
+  el('st6y').addEventListener('click', function () { vote(true, this); });
+  el('st6n').addEventListener('click', function () { vote(false, this); });
+
+  /* ---- boot ---- */
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () { headerStats(); refresh(); }, 350);
+    document.addEventListener('gadapad:walletConnected', refresh);
+    setInterval(function () { if (!busy) refresh(); }, 12000);
+    setInterval(headerStats, 30000);
+  });
+})();
+</script>
+</body>
+</html>
